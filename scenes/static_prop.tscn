@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl1q13bvk2mn4"]
+
+[ext_resource type="Script" path="res://scripts/static_prop.gd" id="1_nvv11"]
+
+[node name="StaticProp" type="StaticBody2D"]
+position = Vector2(665, 688)
+script = ExtResource("1_nvv11")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+region_rect = Rect2(2000, 0, 4000, 1344)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
