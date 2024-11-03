@@ -14,7 +14,7 @@ var mg_instance_shelf: PackedScene
 var mg_instance_music: PackedScene
 
 var everything_loaded: bool = false
-var scene_load_status: Array[ResourceLoader.ThreadLoadStatus] = [0, 0, 0, 0, 0, 0]
+var scene_load_status: Array[ResourceLoader.ThreadLoadStatus] = [ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS, ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS, ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS, ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS, ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS, ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS]
 var load_progress = []
 const MINIGAME_COUNT = 6
 
@@ -25,7 +25,7 @@ func _ready() -> void:
 	Events.return_to_tavern.connect(_on_return_to_tavern)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !everything_loaded:
 		var loaded_count: int = get_loading_statuses()
 		loaded_count_label.text = "%d%%" % (loaded_count * 100.0 / MINIGAME_COUNT)
@@ -55,7 +55,7 @@ func _on_minigame_chosen(minigame: Global.MINI_GAMES) -> void:
 				chosen_minigame = mg_instance_music
 		start_minigame(chosen_minigame)
 
-func _on_return_to_tavern(completed_minigame: Global.MINI_GAMES) -> void:
+func _on_return_to_tavern(_completed_minigame: Global.MINI_GAMES) -> void:
 	current_minigame = Global.MINI_GAMES.NO_GAME
 
 func start_minigame(chosen_minigame: PackedScene) -> void:

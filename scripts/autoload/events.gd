@@ -21,7 +21,7 @@ signal minigame_hover(minigame: Global.MINI_GAMES)
 # Курсор от кнопки-мини-игры отвели
 signal minigame_hover_stopped(minigame: Global.MINI_GAMES)
 # На кнопку мини-игры нажали
-signal minigame_pressed(minigame: Global.MINI_GAMES)
+signal minigame_pressed(_minigame: Global.MINI_GAMES)
 # Мини-игра была выбрана
 signal minigame_chosen(minigame: Global.MINI_GAMES)
 # Из мини-игры вышли

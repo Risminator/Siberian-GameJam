@@ -82,7 +82,7 @@ func _ready() -> void:
 	#Events.satisfied_animal.connect(_change_to_var)
 	#Events.game_lose.connect(_change_to_base)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_transition_start(new_scene: Global.GAME_SCENES) -> void:

@@ -21,7 +21,7 @@ func _on_minigame_completed() -> void:
 func minigame_ready() -> void:
 	pass
 
-func minigame_process(delta: float) -> void:
+func minigame_process(_delta: float) -> void:
 	pass
 
 func minigame_exit() -> void:
