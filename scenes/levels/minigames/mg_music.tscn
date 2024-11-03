@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgusyvdtgo1hq"]
+
+[ext_resource type="PackedScene" uid="uid://c3bn67y6fvnmb" path="res://scenes/levels/minigames/base_minigame.tscn" id="1_hj584"]
+
+[node name="MG_Music" instance=ExtResource("1_hj584")]

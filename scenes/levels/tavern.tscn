@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://baoc7my8aw7mg"]
+
+[ext_resource type="Script" path="res://scripts/tavern.gd" id="1_tdf6r"]
+[ext_resource type="PackedScene" uid="uid://cvm4moumeekmw" path="res://scenes/clickable_object.tscn" id="1_tybcv"]
+[ext_resource type="Texture2D" uid="uid://be803maq7skca" path="res://assets/tavern/BG GJ_1_ tavern.png" id="2_1gmwh"]
+[ext_resource type="Theme" uid="uid://dsg8jpdjkqxx4" path="res://resources/theme_knight_support.tres" id="3_ej7ld"]
+[ext_resource type="Texture2D" uid="uid://c4ke0c1ln3y4e" path="res://assets/tavern/cauldron_sprite.png" id="4_lr8pu"]
+[ext_resource type="Texture2D" uid="uid://dh3b7gcx4kcv7" path="res://assets/tavern/bar_sprite.png" id="5_tm68t"]
+[ext_resource type="Texture2D" uid="uid://dh63i8ml5628" path="res://assets/tavern/weapons_sprite.png" id="6_15vkt"]
+[ext_resource type="Texture2D" uid="uid://b6khgytl2twrt" path="res://assets/tavern/mirror_sprite.png" id="7_byabb"]
+[ext_resource type="Texture2D" uid="uid://c571dn7bpdjkt" path="res://assets/tavern/shkaf_sprite.png" id="8_gn6oh"]
+[ext_resource type="Texture2D" uid="uid://b8mw7akq32f20" path="res://assets/tavern/bard_sprite.png" id="9_a07rt"]
+
+[node name="Tavern" type="Node2D"]
+script = ExtResource("1_tdf6r")
+
+[node name="BgGj1Tavern" type="Sprite2D" parent="."]
+position = Vector2(641, 361)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_1gmwh")
+
+[node name="MGRefreshmentBtn" parent="." instance=ExtResource("1_tybcv")]
+position = Vector2(1030, 435)
+scale = Vector2(0.75, 0.75)
+minigame = 1
+
+[node name="Sprite2D" parent="MGRefreshmentBtn" index="1"]
+texture = ExtResource("5_tm68t")
+
+[node name="MGWeaponBtn" parent="." instance=ExtResource("1_tybcv")]
+position = Vector2(832, 325)
+scale = Vector2(0.75, 0.75)
+minigame = 2
+
+[node name="Sprite2D" parent="MGWeaponBtn" index="1"]
+texture = ExtResource("6_15vkt")
+
+[node name="MGCookingBtn" parent="." instance=ExtResource("1_tybcv")]
+position = Vector2(660, 413)
+scale = Vector2(0.75, 0.75)
+minigame = 3
+
+[node name="Sprite2D" parent="MGCookingBtn" index="1"]
+texture = ExtResource("4_lr8pu")
+
+[node name="MGHaircutBtn" parent="." instance=ExtResource("1_tybcv")]
+position = Vector2(744, 109)
+scale = Vector2(0.75, 0.75)
+minigame = 4
+
+[node name="Sprite2D" parent="MGHaircutBtn" index="1"]
+texture = ExtResource("7_byabb")
+
+[node name="MGShelfBtn" parent="." instance=ExtResource("1_tybcv")]
+position = Vector2(327, 164)
+scale = Vector2(0.75, 0.75)
+minigame = 5
+
+[node name="Sprite2D" parent="MGShelfBtn" index="1"]
+texture = ExtResource("8_gn6oh")
+
+[node name="MGMusicBtn" parent="." instance=ExtResource("1_tybcv")]
+position = Vector2(430, 372)
+scale = Vector2(0.75, 0.75)
+minigame = 6
+
+[node name="Sprite2D" parent="MGMusicBtn" index="1"]
+texture = ExtResource("9_a07rt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LoadingBox" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LoadingBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LoadingLabel" type="Label" parent="CanvasLayer/LoadingBox/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ej7ld")
+text = "LOADING..."
+horizontal_alignment = 1
+
+[node name="LoadedCountLabel" type="Label" parent="CanvasLayer/LoadingBox/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ej7ld")
+text = "0%"
+horizontal_alignment = 1
+
+[editable path="MGRefreshmentBtn"]
+[editable path="MGWeaponBtn"]
+[editable path="MGCookingBtn"]
+[editable path="MGHaircutBtn"]
+[editable path="MGShelfBtn"]
+[editable path="MGMusicBtn"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtp68scbyo2kb"]
+
+[ext_resource type="PackedScene" uid="uid://c3bn67y6fvnmb" path="res://scenes/levels/minigames/base_minigame.tscn" id="1_njk7v"]
+[ext_resource type="Script" path="res://scripts/minigames/mg_haircut.gd" id="2_08227"]
+[ext_resource type="Texture2D" uid="uid://bfrraau04idrv" path="res://assets/props/shaven.png" id="2_nkksu"]
+[ext_resource type="PackedScene" uid="uid://dg5trdgirpujm" path="res://scenes/levels/minigames/mg_haircut/beard_component.tscn" id="4_xypwd"]
+[ext_resource type="Texture2D" uid="uid://5131c1gt704e" path="res://assets/props/beard 1.png" id="5_h5vws"]
+[ext_resource type="Texture2D" uid="uid://w8v2tqq6y08f" path="res://assets/props/beard 2.png" id="6_cxvy3"]
+[ext_resource type="Texture2D" uid="uid://dmc45hu5som17" path="res://assets/props/beard 3.png" id="7_myi8q"]
+[ext_resource type="Texture2D" uid="uid://c8ipiy3f87xky" path="res://assets/props/beard 4.png" id="8_1wfil"]
+[ext_resource type="Texture2D" uid="uid://dodll54t0djof" path="res://assets/props/beard 5.png" id="9_ryyar"]
+
+[node name="MG_Haircut" instance=ExtResource("1_njk7v")]
+script = ExtResource("2_08227")
+
+[node name="Shaven" type="Sprite2D" parent="." index="3"]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nkksu")
+
+[node name="Beard" type="Node2D" parent="." index="4"]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+
+[node name="BeardComponent" parent="Beard" index="0" instance=ExtResource("4_xypwd")]
+
+[node name="Sprite2D" parent="Beard/BeardComponent" index="0"]
+texture = ExtResource("5_h5vws")
+
+[node name="BeardComponent2" parent="Beard" index="1" instance=ExtResource("4_xypwd")]
+
+[node name="Sprite2D" parent="Beard/BeardComponent2" index="0"]
+texture = ExtResource("6_cxvy3")
+
+[node name="BeardComponent3" parent="Beard" index="2" instance=ExtResource("4_xypwd")]
+
+[node name="Sprite2D" parent="Beard/BeardComponent3" index="0"]
+texture = ExtResource("7_myi8q")
+
+[node name="BeardComponent4" parent="Beard" index="3" instance=ExtResource("4_xypwd")]
+
+[node name="Sprite2D" parent="Beard/BeardComponent4" index="0"]
+texture = ExtResource("8_1wfil")
+
+[node name="BeardComponent5" parent="Beard" index="4" instance=ExtResource("4_xypwd")]
+
+[node name="Sprite2D" parent="Beard/BeardComponent5" index="0"]
+texture = ExtResource("9_ryyar")
+
+[editable path="Beard/BeardComponent"]
+[editable path="Beard/BeardComponent2"]
+[editable path="Beard/BeardComponent3"]
+[editable path="Beard/BeardComponent4"]
+[editable path="Beard/BeardComponent5"]
