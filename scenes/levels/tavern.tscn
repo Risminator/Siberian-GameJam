@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://baoc7my8aw7mg"]
+[gd_scene load_steps=16 format=3 uid="uid://baoc7my8aw7mg"]
 
 [ext_resource type="Script" path="res://scripts/tavern.gd" id="1_tdf6r"]
 [ext_resource type="PackedScene" uid="uid://cvm4moumeekmw" path="res://scenes/clickable_object.tscn" id="1_tybcv"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://b6khgytl2twrt" path="res://assets/tavern/mirror_sprite.png" id="7_byabb"]
 [ext_resource type="Texture2D" uid="uid://c571dn7bpdjkt" path="res://assets/tavern/shkaf_sprite.png" id="8_gn6oh"]
 [ext_resource type="Texture2D" uid="uid://b8mw7akq32f20" path="res://assets/tavern/bard_sprite.png" id="9_a07rt"]
+[ext_resource type="Texture2D" uid="uid://bnhwitgyimvfo" path="res://assets/temp/hero_temp.png" id="11_huehx"]
+[ext_resource type="Texture2D" uid="uid://cbyd7q2ub3yxr" path="res://assets/temp/frame.png" id="12_58thq"]
+[ext_resource type="Texture2D" uid="uid://cbv1clyk3srjl" path="res://assets/temp/happiness_under.png" id="13_3o8bd"]
+[ext_resource type="Texture2D" uid="uid://cvnm3g6yutbgi" path="res://assets/temp/happiness_over.png" id="14_6ldki"]
+[ext_resource type="Texture2D" uid="uid://suwxjr2mghbe" path="res://assets/temp/happiness_progress.png" id="15_g8ee0"]
 
 [node name="Tavern" type="Node2D"]
 script = ExtResource("1_tdf6r")
@@ -93,6 +98,83 @@ layout_mode = 2
 theme = ExtResource("3_ej7ld")
 text = "0%"
 horizontal_alignment = 1
+
+[node name="HeroPortrait" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="HeroFace" type="TextureRect" parent="CanvasLayer/HeroPortrait"]
+custom_minimum_size = Vector2(369, 420)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -346.0
+offset_right = 375.0
+offset_bottom = 104.0
+grow_vertical = 0
+texture = ExtResource("11_huehx")
+expand_mode = 1
+flip_h = true
+
+[node name="HeroFrame" type="TextureRect" parent="CanvasLayer/HeroPortrait"]
+custom_minimum_size = Vector2(275, 400)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+offset_right = 275.0
+grow_vertical = 0
+texture = ExtResource("12_58thq")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HeroPortrait"]
+custom_minimum_size = Vector2(275, 80)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -85.0
+offset_right = 275.0
+offset_bottom = 3.0
+grow_vertical = 0
+theme_override_constants/separation = -2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HeroPortrait/VBoxContainer"]
+custom_minimum_size = Vector2(275, 36)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/HeroPortrait/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ej7ld")
+theme_override_font_sizes/font_size = 30
+text = "Happiness:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/HeroPortrait/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ej7ld")
+theme_override_font_sizes/font_size = 30
+text = "100 / 100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HappinessBar" type="TextureProgressBar" parent="CanvasLayer/HeroPortrait/VBoxContainer"]
+custom_minimum_size = Vector2(275, 40)
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("13_3o8bd")
+texture_over = ExtResource("14_6ldki")
+texture_progress = ExtResource("15_g8ee0")
 
 [editable path="MGRefreshmentBtn"]
 [editable path="MGWeaponBtn"]

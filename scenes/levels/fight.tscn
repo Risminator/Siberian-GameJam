@@ -1,3 +1,96 @@
-[gd_scene format=3 uid="uid://c2v04xgvr74d2"]
+[gd_scene load_steps=10 format=3 uid="uid://c2v04xgvr74d2"]
+
+[ext_resource type="Texture2D" uid="uid://b0ffn5mbsh2ri" path="res://assets/backgrounds/mountains_sprite.png" id="1_jl5dj"]
+[ext_resource type="Texture2D" uid="uid://b68h5no3e7v6n" path="res://assets/backgrounds/grass_sprite.png" id="2_k0xmm"]
+[ext_resource type="Texture2D" uid="uid://dhkipe71duiyj" path="res://assets/backgrounds/tree_1_sprite.png" id="3_11f8h"]
+[ext_resource type="Texture2D" uid="uid://mrogehjk5xym" path="res://assets/backgrounds/tree_2_sprite.png" id="4_gason"]
+[ext_resource type="Texture2D" uid="uid://bk2d7cje2v3t" path="res://assets/backgrounds/tree_3_sprite.png" id="5_onrye"]
+[ext_resource type="Texture2D" uid="uid://1fooc0wo3jne" path="res://assets/backgrounds/tree_4_sprite.png" id="6_7dgxd"]
+[ext_resource type="Texture2D" uid="uid://ddu0f4wrkeiox" path="res://assets/backgrounds/crone_3_sprite.png" id="7_xvgec"]
+[ext_resource type="Texture2D" uid="uid://bvmngdjsnlp2f" path="res://assets/backgrounds/crone_2_sprite.png" id="8_ceadk"]
+[ext_resource type="Texture2D" uid="uid://mqimaqlrxr3i" path="res://assets/backgrounds/crone_1_sprite.png" id="9_d1yro"]
 
 [node name="Fight" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Mountains" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(640, 360)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_jl5dj")
+
+[node name="Grass" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(640, 605)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_k0xmm")
+
+[node name="Trees" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-109, 2)
+
+[node name="Tree1Sprite" type="Sprite2D" parent="Trees"]
+position = Vector2(181, 600)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_11f8h")
+offset = Vector2(0, -405)
+
+[node name="Tree2Sprite" type="Sprite2D" parent="Trees"]
+position = Vector2(520.75, 600)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_gason")
+offset = Vector2(0, -405)
+
+[node name="Tree3Sprite" type="Sprite2D" parent="Trees"]
+position = Vector2(1006.75, 600)
+scale = Vector2(0.613924, 0.613924)
+texture = ExtResource("5_onrye")
+offset = Vector2(0, -405)
+
+[node name="Tree1Sprite2" type="Sprite2D" parent="Trees"]
+position = Vector2(845.75, 600)
+scale = Vector2(0.544369, 0.544369)
+texture = ExtResource("3_11f8h")
+offset = Vector2(0, -405)
+flip_h = true
+
+[node name="Tree4Sprite" type="Sprite2D" parent="Trees"]
+position = Vector2(1362, 600)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_7dgxd")
+offset = Vector2(0, -405)
+
+[node name="Tree4Sprite2" type="Sprite2D" parent="Trees"]
+position = Vector2(385, 520)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_7dgxd")
+offset = Vector2(0, -405)
+
+[node name="Crones" type="Node2D" parent="Trees"]
+z_index = 2
+
+[node name="Crone3Sprite" type="Sprite2D" parent="Trees/Crones"]
+position = Vector2(206, 22)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_xvgec")
+
+[node name="Crone2Sprite" type="Sprite2D" parent="Trees/Crones"]
+position = Vector2(500, 47)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_ceadk")
+
+[node name="Crone1Sprite" type="Sprite2D" parent="Trees/Crones"]
+position = Vector2(909, 79)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_d1yro")
+
+[node name="Crone3Sprite2" type="Sprite2D" parent="Trees/Crones"]
+position = Vector2(793, 46)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_xvgec")
+
+[node name="Crone2Sprite2" type="Sprite2D" parent="Trees/Crones"]
+position = Vector2(1274, 30)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_ceadk")
