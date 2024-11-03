@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfqyao7w8ej5t"]
+[gd_scene load_steps=3 format=3 uid="uid://bfqyao7w8ej5t"]
 
 [ext_resource type="Script" path="res://scripts/physics_prop.gd" id="1_0bhd1"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f0p3q"]
+friction = 0.5
+bounce = 0.3
+
 [node name="PhysicsProp" type="RigidBody2D"]
+physics_interpolation_mode = 1
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_f0p3q")
+center_of_mass_mode = 1
+freeze_mode = 1
+continuous_cd = 1
 script = ExtResource("1_0bhd1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

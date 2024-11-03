@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dl1q13bvk2mn4" path="res://scenes/static_prop.tscn" id="1_qj67l"]
 [ext_resource type="Texture2D" uid="uid://yyvel1qwh4jy" path="res://assets/temp/Yellow.png" id="2_1lm6u"]
 [ext_resource type="PackedScene" uid="uid://bfqyao7w8ej5t" path="res://scenes/physics_prop.tscn" id="2_f06o8"]
-[ext_resource type="Texture2D" uid="uid://bsr6hdymcm0nd" path="res://assets/temp/Button_basic.png" id="4_kt81f"]
+[ext_resource type="Texture2D" uid="uid://csnu3mvdgxw3u" path="res://assets/props/carrot.png" id="4_oeh7w"]
 
 [node name="Level" type="Node2D"]
 
@@ -14,6 +14,9 @@ sprite_texture = ExtResource("2_1lm6u")
 
 [node name="PhysicsProp2" parent="." instance=ExtResource("2_f06o8")]
 position = Vector2(636, 358)
-input_pickable = true
-freeze_mode = 1
-sprite_texture = ExtResource("4_kt81f")
+
+[node name="Sprite2D" parent="PhysicsProp2" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_oeh7w")
+
+[editable path="PhysicsProp2"]
