@@ -15,7 +15,7 @@ var prop_taken:bool = false
 func _ready() -> void:
 	if sprite.texture == null:
 		set_sprite_texture()
-	if collision_polygon.polygon.is_empty():
+	if sprite.texture != null and collision_polygon.polygon.is_empty():
 		set_collision_to_sprite()
 		
 func _process(delta):
@@ -74,3 +74,7 @@ func set_collision_to_sprite() -> void:
 func set_taken(taken: bool) -> void:
 	prop_taken = taken
 	freeze = taken
+	if taken:
+		Events.prop_taken.emit()
+	else:
+		Events.prop_dropped.emit()
