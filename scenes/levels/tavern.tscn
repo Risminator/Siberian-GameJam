@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://baoc7my8aw7mg"]
+[gd_scene load_steps=21 format=3 uid="uid://baoc7my8aw7mg"]
 
 [ext_resource type="Script" path="res://scripts/tavern.gd" id="1_tdf6r"]
 [ext_resource type="PackedScene" uid="uid://cvm4moumeekmw" path="res://scenes/clickable_object.tscn" id="1_tybcv"]
@@ -12,10 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://b8mw7akq32f20" path="res://assets/tavern/bard_sprite.png" id="9_a07rt"]
 [ext_resource type="Texture2D" uid="uid://cgdnaqrm8frbe" path="res://assets/UI/character portrait ui.png" id="11_2orqu"]
 [ext_resource type="Script" path="res://scripts/UI/hero_portrait.gd" id="11_22ot7"]
-[ext_resource type="Texture2D" uid="uid://bnhwitgyimvfo" path="res://assets/temp/hero_temp.png" id="11_huehx"]
+[ext_resource type="SpriteFrames" uid="uid://0k1hdmyahfkv" path="res://resources/hero_emotions.tres" id="13_ef4mg"]
 [ext_resource type="PackedScene" uid="uid://c1ji57y7ot82s" path="res://scenes/UI/happiness_bar.tscn" id="13_sonyx"]
 [ext_resource type="Texture2D" uid="uid://dmeaanw4joh1x" path="res://assets/UI/portrait2.png" id="13_upcg4"]
+[ext_resource type="Script" path="res://scripts/his_emotions.gd" id="14_qak2e"]
 [ext_resource type="Texture2D" uid="uid://dh6i7vayt7t8u" path="res://assets/tavern/ichbod_sprite.png" id="14_wewd1"]
+[ext_resource type="Script" path="res://scripts/label_2.gd" id="15_aa4la"]
+[ext_resource type="Script" path="res://scripts/time_label.gd" id="18_drxow"]
+[ext_resource type="PackedScene" uid="uid://dvjqr7ei34lgq" path="res://scenes/menus/pause_menu.tscn" id="20_scken"]
 
 [node name="Tavern" type="Node2D"]
 script = ExtResource("1_tdf6r")
@@ -122,20 +126,12 @@ grow_vertical = 0
 texture = ExtResource("11_2orqu")
 expand_mode = 1
 
-[node name="HeroFace" type="TextureRect" parent="CanvasLayer/HeroPortrait"]
-custom_minimum_size = Vector2(369, 420)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -346.0
-offset_right = 375.0
-offset_bottom = 104.0
-grow_vertical = 0
-texture = ExtResource("11_huehx")
-expand_mode = 1
-flip_h = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HeroPortrait"]
+position = Vector2(141, -111)
+scale = Vector2(0.393271, 0.393271)
+sprite_frames = ExtResource("13_ef4mg")
+animation = &"1"
+script = ExtResource("14_qak2e")
 
 [node name="HeroFrame2" type="TextureRect" parent="CanvasLayer/HeroPortrait"]
 custom_minimum_size = Vector2(275, 106)
@@ -178,9 +174,10 @@ vertical_alignment = 1
 layout_mode = 2
 theme = ExtResource("3_ej7ld")
 theme_override_font_sizes/font_size = 28
-text = "100 / 100"
+text = "0 / 175"
 horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("15_aa4la")
 
 [node name="HappinessBar" parent="CanvasLayer/HeroPortrait/VBoxContainer" instance=ExtResource("13_sonyx")]
 layout_mode = 2
@@ -188,10 +185,28 @@ layout_mode = 2
 [node name="HappinessBar" parent="CanvasLayer/HeroPortrait/VBoxContainer/HappinessBar" index="0"]
 layout_mode = 0
 
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_ej7ld")
+text = "Time left: 45"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("18_drxow")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/PanelContainer/TimeLabel"]
+wait_time = 45.0
+
 [node name="IchbodSprite" type="Sprite2D" parent="."]
 position = Vector2(494, 539.5)
 scale = Vector2(0.707546, 0.670782)
 texture = ExtResource("14_wewd1")
+
+[node name="PauseMenu" parent="." instance=ExtResource("20_scken")]
 
 [editable path="MGRefreshmentBtn"]
 [editable path="MGWeaponBtn"]

@@ -99,7 +99,6 @@ position = Vector2(640, 430)
 scale = Vector2(0.35, 0.35)
 
 [node name="Area2D" type="Area2D" parent="Cauldron" index="0"]
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cauldron/Area2D" index="0"]
 polygon = PackedVector2Array(-228.572, -154.286, -331.429, -17.1428, -257.143, 177.143, -11.4286, 248.572, 220, 222.857, 328.571, 82.8572, 322.857, -114.286, 231.429, -148.571)

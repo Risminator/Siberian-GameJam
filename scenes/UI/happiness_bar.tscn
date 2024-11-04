@@ -132,6 +132,7 @@ custom_minimum_size = Vector2(275, 40)
 layout_mode = 1
 offset_right = 1080.0
 offset_bottom = 160.0
+max_value = 175.0
 value = 100.0
 texture_under = ExtResource("2_vhjfr")
 texture_over = ExtResource("3_tpg5h")

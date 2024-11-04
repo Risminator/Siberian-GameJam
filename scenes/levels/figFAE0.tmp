@@ -1,0 +1,239 @@
+[gd_scene load_steps=17 format=3 uid="uid://c2v04xgvr74d2"]
+
+[ext_resource type="Script" path="res://scripts/fight.gd" id="1_f81jk"]
+[ext_resource type="Texture2D" uid="uid://b0ffn5mbsh2ri" path="res://assets/backgrounds/mountains_sprite.png" id="1_jl5dj"]
+[ext_resource type="Texture2D" uid="uid://b68h5no3e7v6n" path="res://assets/backgrounds/grass_sprite.png" id="2_k0xmm"]
+[ext_resource type="Texture2D" uid="uid://mrogehjk5xym" path="res://assets/backgrounds/tree_2_sprite.png" id="2_tpqgj"]
+[ext_resource type="Texture2D" uid="uid://bk2d7cje2v3t" path="res://assets/backgrounds/tree_3_sprite.png" id="4_850gb"]
+[ext_resource type="Texture2D" uid="uid://bvmngdjsnlp2f" path="res://assets/backgrounds/crone_2_sprite.png" id="4_jt66v"]
+[ext_resource type="Texture2D" uid="uid://mqimaqlrxr3i" path="res://assets/backgrounds/crone_1_sprite.png" id="5_qn3c7"]
+[ext_resource type="Texture2D" uid="uid://1fooc0wo3jne" path="res://assets/backgrounds/tree_4_sprite.png" id="6_7dk44"]
+[ext_resource type="Texture2D" uid="uid://dhkipe71duiyj" path="res://assets/backgrounds/tree_1_sprite.png" id="7_31nc7"]
+[ext_resource type="Texture2D" uid="uid://ddu0f4wrkeiox" path="res://assets/backgrounds/crone_3_sprite.png" id="7_bevur"]
+[ext_resource type="Texture2D" uid="uid://bevw1toq688lo" path="res://assets/backgrounds/fog.png" id="8_foye1"]
+[ext_resource type="PackedScene" uid="uid://85fxdh4gd82e" path="res://scenes/hero.tscn" id="12_hfp8o"]
+[ext_resource type="PackedScene" uid="uid://c1ji57y7ot82s" path="res://scenes/UI/happiness_bar.tscn" id="13_gsnp7"]
+[ext_resource type="Texture2D" uid="uid://bshbe4q1x8afv" path="res://assets/UI/progreass stick.png" id="15_l3n4o"]
+[ext_resource type="Texture2D" uid="uid://d0dwcdrpqkfsj" path="res://assets/UI/knight face icon.png" id="16_eqb8w"]
+[ext_resource type="Texture2D" uid="uid://curmqktwjk6v5" path="res://assets/UI/slime icon.png" id="17_cj363"]
+
+[node name="Fight" type="Node2D"]
+position = Vector2(8, 43)
+script = ExtResource("1_f81jk")
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -5
+position = Vector2(-8, -75)
+
+[node name="Mountains" type="Sprite2D" parent="Background"]
+z_index = -2
+position = Vector2(656, 325)
+scale = Vector2(0.75, 0.664914)
+texture = ExtResource("1_jl5dj")
+
+[node name="Tree2Sprite" type="Sprite2D" parent="Background"]
+position = Vector2(831, 532.117)
+scale = Vector2(0.473077, 0.390244)
+texture = ExtResource("2_tpqgj")
+
+[node name="Tree3Sprite" type="Sprite2D" parent="Background"]
+modulate = Color(0.868985, 0.868985, 0.868985, 1)
+position = Vector2(656, 509.117)
+scale = Vector2(0.362025, 0.346342)
+texture = ExtResource("4_850gb")
+
+[node name="Tree1Sprite" type="Sprite2D" parent="Background"]
+position = Vector2(424, 527.117)
+scale = Vector2(0.392492, 0.402023)
+texture = ExtResource("7_31nc7")
+
+[node name="Tree3Sprite2" type="Sprite2D" parent="Background"]
+position = Vector2(64, 519.117)
+scale = Vector2(0.336709, 0.336585)
+texture = ExtResource("4_850gb")
+
+[node name="Tree1Sprite2" type="Sprite2D" parent="Background"]
+position = Vector2(1192, 535.117)
+scale = Vector2(0.542662, 0.437421)
+texture = ExtResource("7_31nc7")
+
+[node name="Crone2Sprite3" type="Sprite2D" parent="Background"]
+position = Vector2(655, 365.117)
+rotation = 0.261799
+scale = Vector2(0.423454, 0.244407)
+texture = ExtResource("4_jt66v")
+
+[node name="Crone2Sprite2" type="Sprite2D" parent="Background"]
+position = Vector2(98, 365.117)
+scale = Vector2(0.527009, 0.29222)
+texture = ExtResource("4_jt66v")
+
+[node name="Crone2Sprite4" type="Sprite2D" parent="Background"]
+position = Vector2(445, 351.117)
+rotation = 0.261799
+scale = Vector2(0.445754, 0.2318)
+texture = ExtResource("4_jt66v")
+
+[node name="Crone2Sprite" type="Sprite2D" parent="Background"]
+position = Vector2(903, 386.117)
+rotation = 0.261799
+scale = Vector2(0.40712, 0.308831)
+texture = ExtResource("4_jt66v")
+
+[node name="Crone3Sprite" type="Sprite2D" parent="Background"]
+position = Vector2(1150, 361.117)
+rotation = 0.261799
+scale = Vector2(0.6222, 0.526822)
+texture = ExtResource("7_bevur")
+
+[node name="Fog" type="Sprite2D" parent="Background"]
+position = Vector2(704, 373)
+scale = Vector2(0.65315, 0.623693)
+texture = ExtResource("8_foye1")
+
+[node name="Playerground" type="Node2D" parent="."]
+
+[node name="Grass" type="Sprite2D" parent="Playerground"]
+z_index = -3
+position = Vector2(645, 518)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_k0xmm")
+
+[node name="Trees" type="Node2D" parent="Playerground"]
+z_index = -1
+position = Vector2(-112, -23)
+
+[node name="Crones" type="Node2D" parent="Playerground/Trees"]
+z_index = 2
+
+[node name="Crone2Sprite" type="Sprite2D" parent="Playerground/Trees/Crones"]
+modulate = Color(0.7238, 0.94, 0.781453, 1)
+position = Vector2(1298.2, -19.058)
+scale = Vector2(0.727791, 0.565245)
+texture = ExtResource("4_jt66v")
+
+[node name="Crone1Sprite" type="Sprite2D" parent="Playerground/Trees/Crones"]
+modulate = Color(0.7238, 0.94, 0.781453, 1)
+position = Vector2(236.883, -0.538383)
+rotation = 0.261799
+scale = Vector2(0.831717, 0.849554)
+texture = ExtResource("5_qn3c7")
+
+[node name="Tree4Sprite" type="Sprite2D" parent="Playerground/Trees"]
+modulate = Color(0.93, 0.7998, 0.7998, 1)
+position = Vector2(1253.2, 257.942)
+scale = Vector2(0.602941, 0.637037)
+texture = ExtResource("6_7dk44")
+
+[node name="Tree1Sprite" type="Sprite2D" parent="Playerground/Trees"]
+modulate = Color(0.89, 0.7654, 0.7654, 1)
+position = Vector2(208.883, 226.462)
+scale = Vector2(0.784983, 0.74842)
+texture = ExtResource("7_31nc7")
+
+[node name="Hero" parent="Playerground" instance=ExtResource("12_hfp8o")]
+position = Vector2(374, 352)
+
+[node name="Monsters" type="Node2D" parent="Playerground"]
+z_index = 3
+
+[node name="Mark1" type="Marker2D" parent="Playerground"]
+position = Vector2(808, 432)
+
+[node name="Mark2" type="Marker2D" parent="Playerground"]
+position = Vector2(976, 476)
+
+[node name="Mark3" type="Marker2D" parent="Playerground"]
+position = Vector2(1232, 454)
+
+[node name="Mark4" type="Marker2D" parent="Playerground"]
+position = Vector2(1086, 535)
+
+[node name="Mark5" type="Marker2D" parent="Playerground"]
+position = Vector2(824, 537)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HappinessBar" parent="CanvasLayer" instance=ExtResource("13_gsnp7")]
+offset_left = 214.0
+offset_top = 55.0
+offset_right = 489.0
+offset_bottom = 95.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -512.0
+offset_top = 75.0
+offset_bottom = 123.0
+grow_horizontal = 0
+texture = ExtResource("15_l3n4o")
+
+[node name="Head" type="TextureRect" parent="CanvasLayer"]
+offset_left = 790.0
+offset_top = 16.0
+offset_right = 1046.0
+offset_bottom = 272.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("16_eqb8w")
+
+[node name="Slime1" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -405.0
+offset_top = 16.0
+offset_right = -149.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")
+
+[node name="Slime2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 16.0
+offset_right = -64.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")
+
+[node name="Slime3" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -235.0
+offset_top = 16.0
+offset_right = 21.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")
+
+[node name="Slime4" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = 16.0
+offset_right = 106.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")
+
+[node name="Slime5" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 16.0
+offset_right = 191.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")

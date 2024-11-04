@@ -1,11 +1,14 @@
 extends Node
 
 # Начало перехода на сцену new_scene
+@warning_ignore("unused_signal")
 signal transition_start(new_scene: Global.GAME_SCENES)
 # Конец перехода на сцену new_scene
+@warning_ignore("unused_signal")
 signal transition_complete(new_scene: Global.GAME_SCENES)
 
 # Будет использоваться, когда мы прошли абсолютно все локации
+@warning_ignore("unused_signal")
 signal game_win
 
 # Ещё нигде не применялось, но можно использовать, если вдруг сделаем настройки громкости
@@ -26,6 +29,8 @@ signal minigame_pressed(_minigame: Global.MINI_GAMES)
 signal minigame_chosen(minigame: Global.MINI_GAMES)
 # Из мини-игры вышли
 signal return_to_tavern(minigame: Global.MINI_GAMES)
+# Пошли в битву из таверны
+signal go_to_battle
 
 ### ВЗАВИМОДЕЙСТВИЯ СО СЦЕНОЙ В МИНИ-ИГРАХ
 
@@ -47,6 +52,8 @@ signal happiness_updated(before: int, after: int)
 signal happiness_increased(before: int, after: int)
 # Частный случай: Счастье уменьшилось
 signal happiness_decreased(before: int, after: int)
+# Частный случай: Счастье максимальное
+signal happiness_maxed
 
 ### Бой
 

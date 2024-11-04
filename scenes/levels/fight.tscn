@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2v04xgvr74d2"]
+[gd_scene load_steps=20 format=3 uid="uid://c2v04xgvr74d2"]
 
 [ext_resource type="Script" path="res://scripts/fight.gd" id="1_f81jk"]
 [ext_resource type="Texture2D" uid="uid://b0ffn5mbsh2ri" path="res://assets/backgrounds/mountains_sprite.png" id="1_jl5dj"]
@@ -12,8 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://ddu0f4wrkeiox" path="res://assets/backgrounds/crone_3_sprite.png" id="7_bevur"]
 [ext_resource type="Texture2D" uid="uid://bevw1toq688lo" path="res://assets/backgrounds/fog.png" id="8_foye1"]
 [ext_resource type="PackedScene" uid="uid://85fxdh4gd82e" path="res://scenes/hero.tscn" id="12_hfp8o"]
-[ext_resource type="PackedScene" uid="uid://cv2eehlk5w48t" path="res://scenes/monster.tscn" id="13_7toqr"]
 [ext_resource type="PackedScene" uid="uid://c1ji57y7ot82s" path="res://scenes/UI/happiness_bar.tscn" id="13_gsnp7"]
+[ext_resource type="Texture2D" uid="uid://dh6i7vayt7t8u" path="res://assets/tavern/ichbod_sprite.png" id="13_pw2t0"]
+[ext_resource type="Texture2D" uid="uid://bshbe4q1x8afv" path="res://assets/UI/progreass stick.png" id="15_l3n4o"]
+[ext_resource type="Texture2D" uid="uid://d0dwcdrpqkfsj" path="res://assets/UI/knight face icon.png" id="16_eqb8w"]
+[ext_resource type="Texture2D" uid="uid://curmqktwjk6v5" path="res://assets/UI/slime icon.png" id="17_cj363"]
+[ext_resource type="PackedScene" uid="uid://dvjqr7ei34lgq" path="res://scenes/menus/pause_menu.tscn" id="18_2gefs"]
+[ext_resource type="AudioStream" uid="uid://cpix32qgeyfpa" path="res://assets/audio/SFX/pobeda.wav" id="19_nr4vg"]
 
 [node name="Fight" type="Node2D"]
 position = Vector2(8, 43)
@@ -130,15 +135,31 @@ scale = Vector2(0.784983, 0.74842)
 texture = ExtResource("7_31nc7")
 
 [node name="Hero" parent="Playerground" instance=ExtResource("12_hfp8o")]
+position = Vector2(374, 352)
 
 [node name="Monsters" type="Node2D" parent="Playerground"]
 z_index = 3
 
-[node name="Monster" parent="Playerground/Monsters" instance=ExtResource("13_7toqr")]
-position = Vector2(946, 420)
+[node name="Mark1" type="Marker2D" parent="Playerground"]
+position = Vector2(808, 432)
 
-[node name="Monster2" parent="Playerground/Monsters" instance=ExtResource("13_7toqr")]
-position = Vector2(1098, 505)
+[node name="Mark2" type="Marker2D" parent="Playerground"]
+position = Vector2(976, 476)
+
+[node name="Mark3" type="Marker2D" parent="Playerground"]
+position = Vector2(1232, 454)
+
+[node name="Mark4" type="Marker2D" parent="Playerground"]
+position = Vector2(1086, 535)
+
+[node name="Mark5" type="Marker2D" parent="Playerground"]
+position = Vector2(824, 537)
+
+[node name="IchbodSprite" type="Sprite2D" parent="Playerground"]
+position = Vector2(76, 407)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_pw2t0")
+flip_h = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -147,3 +168,86 @@ offset_left = 214.0
 offset_top = 55.0
 offset_right = 489.0
 offset_bottom = 95.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -512.0
+offset_top = 75.0
+offset_bottom = 123.0
+grow_horizontal = 0
+texture = ExtResource("15_l3n4o")
+
+[node name="Head" type="TextureRect" parent="CanvasLayer"]
+offset_left = 790.0
+offset_top = 16.0
+offset_right = 1046.0
+offset_bottom = 272.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("16_eqb8w")
+
+[node name="Slime1" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -405.0
+offset_top = 16.0
+offset_right = -149.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")
+
+[node name="Slime2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 16.0
+offset_right = -64.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")
+
+[node name="Slime3" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -235.0
+offset_top = 16.0
+offset_right = 21.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")
+
+[node name="Slime4" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = 16.0
+offset_right = 106.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")
+
+[node name="Slime5" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 16.0
+offset_right = 191.0
+offset_bottom = 272.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_cj363")
+
+[node name="PauseMenu" parent="." instance=ExtResource("18_2gefs")]
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_nr4vg")

@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var btn_resume: Button = $PanelContainer/VBoxContainer/BtnResume
 @onready var btn_restart: Button = $PanelContainer/VBoxContainer/BtnRestart
 @onready var btn_main: Button = $PanelContainer/VBoxContainer/BtnMain
+
 @export var track_esc: bool = true
 
 @onready var music_scroll: HScrollBar = $PanelContainer/VBoxContainer/Music2

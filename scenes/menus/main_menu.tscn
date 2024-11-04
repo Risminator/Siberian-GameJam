@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctwjh38ge7atb"]
+[gd_scene load_steps=6 format=3 uid="uid://ctwjh38ge7atb"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_hlahm"]
+[ext_resource type="Texture2D" uid="uid://47cj7kiwybf" path="res://assets/UI/main menu.png" id="2_2ddkq"]
 [ext_resource type="PackedScene" uid="uid://dvjqr7ei34lgq" path="res://scenes/menus/pause_menu.tscn" id="2_i4eg1"]
-[ext_resource type="Texture2D" uid="uid://yyvel1qwh4jy" path="res://assets/temp/Yellow.png" id="2_ppoas"]
 [ext_resource type="Script" path="res://scripts/screen_shake.gd" id="4_6nu42"]
 [ext_resource type="PackedScene" uid="uid://bdo41luaqgf8v" path="res://scenes/UI/start_btn.tscn" id="4_f8vyj"]
-[ext_resource type="Texture2D" uid="uid://daua41ok765gh" path="res://assets/temp/temp_logo.png" id="9_gimno"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -23,10 +22,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ppoas")
-stretch_mode = 1
+texture = ExtResource("2_2ddkq")
+expand_mode = 1
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_i4eg1")]
+track_esc = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -58,18 +58,6 @@ text = "Quit"
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(640, 360)
 script = ExtResource("4_6nu42")
-
-[node name="Logo" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -285.5
-offset_top = 31.0
-offset_right = 285.5
-offset_bottom = 251.0
-grow_horizontal = 2
-texture = ExtResource("9_gimno")
 
 [connection signal="pressed" from="VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]

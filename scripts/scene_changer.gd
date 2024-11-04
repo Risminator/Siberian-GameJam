@@ -20,6 +20,8 @@ func change_to(new_scene: Global.GAME_SCENES):
 			new_scene_path = Global.LEVEL_PATH
 		Global.GAME_SCENES.TAVERN:
 			new_scene_path = Global.TAVERN_PATH
+		Global.GAME_SCENES.FIGHT:
+			new_scene_path = Global.FIGHT_PATH
 		Global.GAME_SCENES.ENDING:
 			new_scene_path = Global.ENDING_PATH
 

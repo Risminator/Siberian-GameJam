@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var loading_box: PanelContainer = $CanvasLayer/LoadingBox
 @onready var loaded_count_label: Label = $CanvasLayer/LoadingBox/VBoxContainer/LoadedCountLabel
+@onready var timer: Timer = $CanvasLayer/PanelContainer/TimeLabel/Timer
 
 
 var current_minigame: Global.MINI_GAMES = Global.MINI_GAMES.NO_GAME
@@ -23,6 +24,10 @@ func _ready() -> void:
 	start_loading_minigames()
 	Events.minigame_chosen.connect(_on_minigame_chosen)
 	Events.return_to_tavern.connect(_on_return_to_tavern)
+	Events.happiness_maxed.connect(go_to_battle)
+	timer.timeout.connect(go_to_battle)
+	timer.start()
+	Events.return_to_tavern.emit(Global.MINI_GAMES.NO_GAME)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -86,3 +91,7 @@ func assign_loaded_scenes_instances() -> void:
 
 func is_loading_status_ready() -> bool:
 	return scene_load_status.filter(func(status): return status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED).size() >= MINIGAME_COUNT
+
+func go_to_battle() -> void:
+	Events.go_to_battle.emit()
+	SceneChanger.change_to(Global.GAME_SCENES.FIGHT)
