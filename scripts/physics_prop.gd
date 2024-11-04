@@ -9,6 +9,7 @@ class_name PhysicsProp
 @onready var pickup_sound: AudioStreamPlayer = $PickupSound
 @onready var drop_sound: AudioStreamPlayer = $DropSound
 
+@export var always_taken: bool = false
 
 const MAX_SPEED = 1000
 var has_mouse:bool = false
@@ -20,12 +21,15 @@ func _ready() -> void:
 		set_sprite_texture()
 	if sprite.texture != null and collision_polygon.polygon.is_empty():
 		set_collision_to_sprite()
+	if always_taken:
+		set_taken(true)
 		
 func _process(_delta):
-	if has_mouse and !prop_taken and Input.is_action_just_pressed("lmb"):
-		set_taken(true)
-	elif prop_taken and Input.is_action_just_pressed("lmb"):
-		set_taken(false)
+	if !always_taken:
+		if has_mouse and !prop_taken and Input.is_action_just_pressed("lmb"):
+			set_taken(true)
+		elif prop_taken and Input.is_action_just_pressed("lmb"):
+			set_taken(false)
 		
 	if prop_taken:
 		var current_position : Vector2 = self.global_position

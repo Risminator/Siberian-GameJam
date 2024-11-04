@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddm83x62uo7c3"]
+
+[ext_resource type="Texture2D" uid="uid://fmt5xmumdxvy" path="res://assets/props/beer.png" id="1_3eept"]
+[ext_resource type="Script" path="res://scripts/minigames/beer_particle.gd" id="1_lkqib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w3kc"]
+size = Vector2(16, 16)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_lkqib")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3eept")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4w3kc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

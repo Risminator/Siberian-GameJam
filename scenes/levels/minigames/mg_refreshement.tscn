@@ -1,5 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj231xmm1jvfs"]
+[gd_scene load_steps=6 format=3 uid="uid://bj231xmm1jvfs"]
 
 [ext_resource type="PackedScene" uid="uid://c3bn67y6fvnmb" path="res://scenes/levels/minigames/base_minigame.tscn" id="1_6dr81"]
+[ext_resource type="PackedScene" uid="uid://bfqyao7w8ej5t" path="res://scenes/physics_prop.tscn" id="2_mj3t1"]
+[ext_resource type="Script" path="res://scripts/minigames/mg_refreshement.gd" id="2_odyby"]
+[ext_resource type="Texture2D" uid="uid://d0rs7227w7ti8" path="res://assets/props/mug.png" id="3_5xxmv"]
+[ext_resource type="AudioStream" uid="uid://bvh3qmn78qf6v" path="res://assets/audio/SFX/progress.wav" id="5_p3i2d"]
 
 [node name="MG_Refreshment" instance=ExtResource("1_6dr81")]
+script = ExtResource("2_odyby")
+
+[node name="BeerSpawners" type="Node2D" parent="." index="6"]
+
+[node name="Spawn1" type="Marker2D" parent="BeerSpawners" index="0"]
+position = Vector2(228, 118)
+
+[node name="Spawn2" type="Marker2D" parent="BeerSpawners" index="1"]
+position = Vector2(352, 118)
+
+[node name="Spawn3" type="Marker2D" parent="BeerSpawners" index="2"]
+position = Vector2(461, 118)
+
+[node name="Spawn4" type="Marker2D" parent="BeerSpawners" index="3"]
+position = Vector2(624, 118)
+
+[node name="Spawn5" type="Marker2D" parent="BeerSpawners" index="4"]
+position = Vector2(815, 118)
+
+[node name="Spawn6" type="Marker2D" parent="BeerSpawners" index="5"]
+position = Vector2(934, 118)
+
+[node name="Spawn7" type="Marker2D" parent="BeerSpawners" index="6"]
+position = Vector2(1061, 118)
+
+[node name="BeerParticles" type="Node2D" parent="." index="7"]
+
+[node name="Mug" parent="." index="8" instance=ExtResource("2_mj3t1")]
+position = Vector2(649, 429)
+always_taken = true
+
+[node name="BeerCollector" type="Area2D" parent="Mug" index="0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mug/BeerCollector" index="0"]
+polygon = PackedVector2Array(-104, -102, 48, -103, 52, -83, 4, -73, -31, -70, -83, -76, -98, -81, -112, -82)
+
+[node name="Sprite2D" parent="Mug" index="1"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5xxmv")
+
+[node name="CollisionPolygon2D" parent="Mug" index="2"]
+polygon = PackedVector2Array(-99, -79, -108, 89, -93, 95, -56, 101, -21, 103, 18, 100, 51, 88, 48, 50, 76, 38, 109, -13, 93, -66, 78, -72, 40, -56, 37, -79, 29, -76, -29, -68, -83, -72)
+
+[node name="Timer" type="Timer" parent="." index="9"]
+wait_time = 0.2
+autostart = true
+
+[node name="ProgressSFX" type="AudioStreamPlayer" parent="." index="10"]
+stream = ExtResource("5_p3i2d")
+
+[connection signal="body_entered" from="Mug/BeerCollector" to="." method="_on_beer_collector_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Mug"]
