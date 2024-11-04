@@ -3,3 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://c3bn67y6fvnmb" path="res://scenes/levels/minigames/base_minigame.tscn" id="1_7syf1"]
 
 [node name="MG_Shelf" instance=ExtResource("1_7syf1")]
+current_minigame = 5

@@ -23,7 +23,8 @@ func resume():
 
 func restart():
 	resume()
-	SceneChanger.restart()
+	# SceneChanger.restart()
+	SceneChanger.change_to(Global.GAME_SCENES.TAVERN)
 
 func pause():
 	get_tree().paused = true

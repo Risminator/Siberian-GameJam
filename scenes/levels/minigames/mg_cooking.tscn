@@ -14,6 +14,7 @@
 
 [node name="MG_Cooking" instance=ExtResource("1_3bcbk")]
 script = ExtResource("2_r0fhc")
+current_minigame = 3
 
 [node name="CauldronTop" type="Sprite2D" parent="." index="2"]
 position = Vector2(640, 274)

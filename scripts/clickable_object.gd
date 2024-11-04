@@ -1,4 +1,5 @@
 extends Area2D
+class_name ClickableMiniGame
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -8,12 +9,18 @@ extends Area2D
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-
 var has_mouse: bool = false
 var default_scale: Vector2
 var pressed: bool = false
 
 var can_be_chosen: bool = true
+
+var max_cool_down: int = 3
+var cool_down: int = 0:
+	get:
+		return cool_down
+	set(value):
+		cool_down = clamp(value, 0, max_cool_down)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -57,5 +64,15 @@ func _on_minigame_chosen(_chosen_minigame: Global.MINI_GAMES) -> void:
 	has_mouse = false
 	can_be_chosen = false
 	
-func _on_return_to_tavern(_chosen_minigame: Global.MINI_GAMES) -> void:
-	can_be_chosen = true
+func _on_return_to_tavern(completed_minigame: Global.MINI_GAMES) -> void:
+	if minigame == completed_minigame:
+		cool_down = max_cool_down
+	else:
+		cool_down -= 1
+	
+	if cool_down > 0:
+		can_be_chosen = false
+		modulate = Color.hex(0x454545ff)
+	else:
+		can_be_chosen = true
+		modulate = Color.hex(0xffffffff)

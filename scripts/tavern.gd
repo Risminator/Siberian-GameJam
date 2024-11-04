@@ -4,6 +4,7 @@ extends Node2D
 @onready var loaded_count_label: Label = $CanvasLayer/LoadingBox/VBoxContainer/LoadedCountLabel
 @onready var timer: Timer = $CanvasLayer/PanelContainer/TimeLabel/Timer
 
+@onready var clickable_mini_games: Node2D = $ClickableMiniGames
 
 var current_minigame: Global.MINI_GAMES = Global.MINI_GAMES.NO_GAME
 
@@ -19,8 +20,11 @@ var scene_load_status: Array[ResourceLoader.ThreadLoadStatus] = [ResourceLoader.
 var load_progress = []
 const MINIGAME_COUNT = 6
 
+var clickables_array: Array[Node]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.reset_happiness()
 	start_loading_minigames()
 	Events.minigame_chosen.connect(_on_minigame_chosen)
 	Events.return_to_tavern.connect(_on_return_to_tavern)
@@ -28,6 +32,7 @@ func _ready() -> void:
 	timer.timeout.connect(go_to_battle)
 	timer.start()
 	Events.return_to_tavern.emit(Global.MINI_GAMES.NO_GAME)
+	clickables_array = clickable_mini_games.get_children()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -62,6 +67,11 @@ func _on_minigame_chosen(minigame: Global.MINI_GAMES) -> void:
 
 func _on_return_to_tavern(_completed_minigame: Global.MINI_GAMES) -> void:
 	current_minigame = Global.MINI_GAMES.NO_GAME
+	#for clickable:ClickableMiniGame in clickables_array:
+		#if clickable.minigame == _completed_minigame:
+			#clickable.cool_down = clickable.max_cool_down
+		#else:
+			#clickable.cool_down -= 1
 
 func start_minigame(chosen_minigame: PackedScene) -> void:
 	var minigame_instance: MiniGame = chosen_minigame.instantiate()

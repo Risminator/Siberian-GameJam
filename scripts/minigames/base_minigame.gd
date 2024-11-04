@@ -6,6 +6,8 @@ var is_game_active:bool = false
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @export var happiness_reward: int = 25
 
+@export var current_minigame: Global.MINI_GAMES
+
 @onready var win_sfx: AudioStreamPlayer = $WinSFX
 
 # Called when the node enters the scene tree for the first time.
@@ -41,5 +43,5 @@ func set_return_button_active():
 
 func _on_button_pressed() -> void:
 	minigame_exit()
-	Events.return_to_tavern.emit(Global.MINI_GAMES.HAIRCUT)
+	Events.return_to_tavern.emit(current_minigame)
 	animation_player.play("exit")

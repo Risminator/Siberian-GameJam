@@ -29,52 +29,54 @@ position = Vector2(641, 361)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_1gmwh")
 
-[node name="MGRefreshmentBtn" parent="." instance=ExtResource("1_tybcv")]
+[node name="ClickableMiniGames" type="Node2D" parent="."]
+
+[node name="MGRefreshmentBtn" parent="ClickableMiniGames" instance=ExtResource("1_tybcv")]
 position = Vector2(1030, 435)
 scale = Vector2(0.75, 0.75)
 minigame = 1
 
-[node name="Sprite2D" parent="MGRefreshmentBtn" index="1"]
+[node name="Sprite2D" parent="ClickableMiniGames/MGRefreshmentBtn" index="1"]
 texture = ExtResource("5_tm68t")
 
-[node name="MGWeaponBtn" parent="." instance=ExtResource("1_tybcv")]
+[node name="MGWeaponBtn" parent="ClickableMiniGames" instance=ExtResource("1_tybcv")]
 position = Vector2(832, 325)
 scale = Vector2(0.75, 0.75)
 minigame = 2
 
-[node name="Sprite2D" parent="MGWeaponBtn" index="1"]
+[node name="Sprite2D" parent="ClickableMiniGames/MGWeaponBtn" index="1"]
 texture = ExtResource("6_15vkt")
 
-[node name="MGCookingBtn" parent="." instance=ExtResource("1_tybcv")]
+[node name="MGCookingBtn" parent="ClickableMiniGames" instance=ExtResource("1_tybcv")]
 position = Vector2(660, 413)
 scale = Vector2(0.75, 0.75)
 minigame = 3
 
-[node name="Sprite2D" parent="MGCookingBtn" index="1"]
+[node name="Sprite2D" parent="ClickableMiniGames/MGCookingBtn" index="1"]
 texture = ExtResource("4_lr8pu")
 
-[node name="MGHaircutBtn" parent="." instance=ExtResource("1_tybcv")]
+[node name="MGHaircutBtn" parent="ClickableMiniGames" instance=ExtResource("1_tybcv")]
 position = Vector2(744, 109)
 scale = Vector2(0.75, 0.75)
 minigame = 4
 
-[node name="Sprite2D" parent="MGHaircutBtn" index="1"]
+[node name="Sprite2D" parent="ClickableMiniGames/MGHaircutBtn" index="1"]
 texture = ExtResource("7_byabb")
 
-[node name="MGShelfBtn" parent="." instance=ExtResource("1_tybcv")]
+[node name="MGShelfBtn" parent="ClickableMiniGames" instance=ExtResource("1_tybcv")]
 position = Vector2(327, 164)
 scale = Vector2(0.75, 0.75)
 minigame = 5
 
-[node name="Sprite2D" parent="MGShelfBtn" index="1"]
+[node name="Sprite2D" parent="ClickableMiniGames/MGShelfBtn" index="1"]
 texture = ExtResource("8_gn6oh")
 
-[node name="MGMusicBtn" parent="." instance=ExtResource("1_tybcv")]
+[node name="MGMusicBtn" parent="ClickableMiniGames" instance=ExtResource("1_tybcv")]
 position = Vector2(430, 372)
 scale = Vector2(0.75, 0.75)
 minigame = 6
 
-[node name="Sprite2D" parent="MGMusicBtn" index="1"]
+[node name="Sprite2D" parent="ClickableMiniGames/MGMusicBtn" index="1"]
 texture = ExtResource("9_a07rt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -193,13 +195,13 @@ offset_bottom = 40.0
 [node name="TimeLabel" type="Label" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
 theme = ExtResource("3_ej7ld")
-text = "Time left: 45"
+text = "Time left: 80"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("18_drxow")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/PanelContainer/TimeLabel"]
-wait_time = 45.0
+wait_time = 80.0
 
 [node name="IchbodSprite" type="Sprite2D" parent="."]
 position = Vector2(494, 539.5)
@@ -208,10 +210,10 @@ texture = ExtResource("14_wewd1")
 
 [node name="PauseMenu" parent="." instance=ExtResource("20_scken")]
 
-[editable path="MGRefreshmentBtn"]
-[editable path="MGWeaponBtn"]
-[editable path="MGCookingBtn"]
-[editable path="MGHaircutBtn"]
-[editable path="MGShelfBtn"]
-[editable path="MGMusicBtn"]
+[editable path="ClickableMiniGames/MGRefreshmentBtn"]
+[editable path="ClickableMiniGames/MGWeaponBtn"]
+[editable path="ClickableMiniGames/MGCookingBtn"]
+[editable path="ClickableMiniGames/MGHaircutBtn"]
+[editable path="ClickableMiniGames/MGShelfBtn"]
+[editable path="ClickableMiniGames/MGMusicBtn"]
 [editable path="CanvasLayer/HeroPortrait/VBoxContainer/HappinessBar"]

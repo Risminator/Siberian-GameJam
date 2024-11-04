@@ -11,6 +11,7 @@
 
 [node name="MG_Music" instance=ExtResource("1_hj584")]
 script = ExtResource("2_14gja")
+current_minigame = 6
 
 [node name="PouchCoinTop" type="Sprite2D" parent="." index="3"]
 position = Vector2(689, 374)

@@ -8,6 +8,7 @@
 
 [node name="MG_Refreshment" instance=ExtResource("1_6dr81")]
 script = ExtResource("2_odyby")
+current_minigame = 1
 
 [node name="BeerSpawners" type="Node2D" parent="." index="6"]
 

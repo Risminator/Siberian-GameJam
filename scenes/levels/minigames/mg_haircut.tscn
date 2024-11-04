@@ -12,6 +12,7 @@
 
 [node name="MG_Haircut" instance=ExtResource("1_njk7v")]
 script = ExtResource("2_08227")
+current_minigame = 4
 
 [node name="Shaven" type="Sprite2D" parent="." index="2"]
 position = Vector2(640, 390)
