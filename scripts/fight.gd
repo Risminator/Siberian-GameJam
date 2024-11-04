@@ -1,4 +1,5 @@
 extends Node2D
+class_name FightScene
 
 @onready var hero: Sprite2D = $Hero
 @onready var monsters: Node2D = $Monsters
