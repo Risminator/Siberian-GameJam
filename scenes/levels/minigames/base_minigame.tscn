@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c3bn67y6fvnmb"]
+[gd_scene load_steps=23 format=3 uid="uid://c3bn67y6fvnmb"]
 
 [ext_resource type="Script" path="res://scripts/minigames/base_minigame.gd" id="1_kokp0"]
 [ext_resource type="Texture2D" uid="uid://cjv31txoiq845" path="res://assets/backgrounds/mini_game_bg.png" id="2_xqckp"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b5x6xdkud6fwa" path="res://assets/backgrounds/mini_game_frame.png" id="3_8a0ty"]
 [ext_resource type="Texture2D" uid="uid://0n81aote7dps" path="res://assets/temp/check.png" id="4_8l0qi"]
 [ext_resource type="Script" path="res://scripts/minigames/return_button.gd" id="5_a178i"]
+[ext_resource type="AudioStream" uid="uid://muxm5v61qps" path="res://assets/audio/SFX/uibutton.wav" id="7_0sgha"]
+[ext_resource type="AudioStream" uid="uid://cpix32qgeyfpa" path="res://assets/audio/SFX/pobeda.wav" id="7_jrcbk"]
 
 [sub_resource type="Gradient" id="Gradient_t1pol"]
 
@@ -263,6 +265,12 @@ script = ExtResource("5_a178i")
 libraries = {
 "": SubResource("AnimationLibrary_dj4jp")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Button"]
+stream = ExtResource("7_0sgha")
+
+[node name="WinSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jrcbk")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

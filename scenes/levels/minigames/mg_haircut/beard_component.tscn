@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg5trdgirpujm"]
+[gd_scene load_steps=6 format=3 uid="uid://dg5trdgirpujm"]
 
 [ext_resource type="Script" path="res://scripts/minigames/beard_component.gd" id="1_ke22u"]
+[ext_resource type="AudioStream" uid="uid://bvh3qmn78qf6v" path="res://assets/audio/SFX/progress.wav" id="2_ba2je"]
 
 [sub_resource type="Animation" id="Animation_ovtg6"]
 length = 0.001
@@ -112,6 +113,9 @@ script = ExtResource("1_ke22u")
 libraries = {
 "": SubResource("AnimationLibrary_ebr00")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ba2je")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

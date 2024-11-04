@@ -3,6 +3,10 @@ class_name HappinessBar
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var hpup: AudioStreamPlayer = $HPUP
+@onready var hpdown: AudioStreamPlayer = $HPDOWN
+
+
 const FILL_ANIMATION = "fill"
 const DEPLETE_ANIMATION = "deplete"
 const BAR_NAME = "."
@@ -50,7 +54,9 @@ func test_happiness_animations() -> void:
 
 func _on_happiness_updated(before: int, after: int) -> void:
     if after > before:
+        hpup.play()
         Events.happiness_increased.emit(before, after)
     else:
+        hpdown.play()
         Events.happiness_decreased.emit(before, after)
     update_health_bar(before, after)

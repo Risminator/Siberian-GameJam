@@ -6,6 +6,9 @@ var is_game_active:bool = false
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @export var happiness_reward: int = 10
 
+@onready var win_sfx: AudioStreamPlayer = $WinSFX
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Events.minigame_completed.connect(_on_minigame_completed)
@@ -16,7 +19,7 @@ func _process(delta: float) -> void:
 	minigame_process(delta)
 
 func _on_minigame_completed() -> void:
-	
+	win_sfx.play()
 	set_return_button_active()
 
 func minigame_ready() -> void:

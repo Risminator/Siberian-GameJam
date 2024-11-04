@@ -6,6 +6,9 @@ extends Area2D
 @export var minigame: Global.MINI_GAMES
 @export var zoom: Vector2 = Vector2(0.1, 0.1)
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
+
 var has_mouse: bool = false
 var default_scale: Vector2
 var pressed: bool = false
@@ -25,6 +28,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("lmb") and pressed:
 		scale = default_scale + zoom
 		pressed = false
+		audio_stream_player.play()
 		Events.minigame_chosen.emit(minigame)
 
 func _on_mouse_entered() -> void:

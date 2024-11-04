@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dk4jppx34l0en"
+path="res://.godot/imported/hp up.wav-f1b60bc89f9cfad46cfb58bf338f8230.sample"
+
+[deps]
+
+source_file="res://assets/audio/SFX/hp up.wav"
+dest_files=["res://.godot/imported/hp up.wav-f1b60bc89f9cfad46cfb58bf338f8230.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -10,7 +10,7 @@ func minigame_ready() -> void:
 
 
 func minigame_exit() -> void:
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(null)
 	
 
 func _on_beard_cut() -> void:

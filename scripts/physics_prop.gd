@@ -6,6 +6,9 @@ class_name PhysicsProp
 
 @export var sprite_texture: Texture
 
+@onready var pickup_sound: AudioStreamPlayer = $PickupSound
+@onready var drop_sound: AudioStreamPlayer = $DropSound
+
 
 const MAX_SPEED = 1000
 var has_mouse:bool = false
@@ -75,6 +78,8 @@ func set_taken(taken: bool) -> void:
 	prop_taken = taken
 	freeze = taken
 	if taken:
+		pickup_sound.play()
 		Events.prop_taken.emit()
 	else:
+		drop_sound.play()
 		Events.prop_dropped.emit()

@@ -3,6 +3,8 @@ extends Area2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_polygon: CollisionPolygon2D = $CollisionPolygon2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 var has_mouse: bool = false
 
@@ -17,6 +19,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("lmb") and has_mouse:
 		Events.beard_cut.emit()
 		animation_player.play("cut")
+		audio_stream_player.play()
 
 
 func set_collision_to_sprite() -> void:

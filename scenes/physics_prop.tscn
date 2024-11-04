@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfqyao7w8ej5t"]
+[gd_scene load_steps=5 format=3 uid="uid://bfqyao7w8ej5t"]
 
 [ext_resource type="Script" path="res://scripts/physics_prop.gd" id="1_0bhd1"]
+[ext_resource type="AudioStream" uid="uid://2bdvijop7mac" path="res://assets/audio/SFX/pickup.wav" id="2_nmmxl"]
+[ext_resource type="AudioStream" uid="uid://cq1akvl5fwq1f" path="res://assets/audio/SFX/drop.wav" id="3_3v4oc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f0p3q"]
 friction = 0.5
@@ -18,6 +20,12 @@ script = ExtResource("1_0bhd1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nmmxl")
+
+[node name="DropSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3v4oc")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
