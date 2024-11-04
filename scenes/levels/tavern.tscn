@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://baoc7my8aw7mg"]
+[gd_scene load_steps=15 format=3 uid="uid://baoc7my8aw7mg"]
 
 [ext_resource type="Script" path="res://scripts/tavern.gd" id="1_tdf6r"]
 [ext_resource type="PackedScene" uid="uid://cvm4moumeekmw" path="res://scenes/clickable_object.tscn" id="1_tybcv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bnhwitgyimvfo" path="res://assets/temp/hero_temp.png" id="11_huehx"]
 [ext_resource type="Texture2D" uid="uid://cbyd7q2ub3yxr" path="res://assets/temp/frame.png" id="12_58thq"]
 [ext_resource type="PackedScene" uid="uid://c1ji57y7ot82s" path="res://scenes/UI/happiness_bar.tscn" id="13_sonyx"]
+[ext_resource type="Texture2D" uid="uid://dh6i7vayt7t8u" path="res://assets/tavern/ichbod_sprite.png" id="14_wewd1"]
 
 [node name="Tavern" type="Node2D"]
 script = ExtResource("1_tdf6r")
@@ -176,6 +177,11 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="IchbodSprite" type="Sprite2D" parent="."]
+position = Vector2(494, 539.5)
+scale = Vector2(0.707546, 0.670782)
+texture = ExtResource("14_wewd1")
 
 [editable path="MGRefreshmentBtn"]
 [editable path="MGWeaponBtn"]
