@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://baoc7my8aw7mg"]
+[gd_scene load_steps=17 format=3 uid="uid://baoc7my8aw7mg"]
 
 [ext_resource type="Script" path="res://scripts/tavern.gd" id="1_tdf6r"]
 [ext_resource type="PackedScene" uid="uid://cvm4moumeekmw" path="res://scenes/clickable_object.tscn" id="1_tybcv"]
@@ -10,9 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://b6khgytl2twrt" path="res://assets/tavern/mirror_sprite.png" id="7_byabb"]
 [ext_resource type="Texture2D" uid="uid://c571dn7bpdjkt" path="res://assets/tavern/shkaf_sprite.png" id="8_gn6oh"]
 [ext_resource type="Texture2D" uid="uid://b8mw7akq32f20" path="res://assets/tavern/bard_sprite.png" id="9_a07rt"]
+[ext_resource type="Texture2D" uid="uid://cgdnaqrm8frbe" path="res://assets/UI/character portrait ui.png" id="11_2orqu"]
+[ext_resource type="Script" path="res://scripts/UI/hero_portrait.gd" id="11_22ot7"]
 [ext_resource type="Texture2D" uid="uid://bnhwitgyimvfo" path="res://assets/temp/hero_temp.png" id="11_huehx"]
-[ext_resource type="Texture2D" uid="uid://cbyd7q2ub3yxr" path="res://assets/temp/frame.png" id="12_58thq"]
 [ext_resource type="PackedScene" uid="uid://c1ji57y7ot82s" path="res://scenes/UI/happiness_bar.tscn" id="13_sonyx"]
+[ext_resource type="Texture2D" uid="uid://dmeaanw4joh1x" path="res://assets/UI/portrait2.png" id="13_upcg4"]
 [ext_resource type="Texture2D" uid="uid://dh6i7vayt7t8u" path="res://assets/tavern/ichbod_sprite.png" id="14_wewd1"]
 
 [node name="Tavern" type="Node2D"]
@@ -106,6 +108,19 @@ anchor_bottom = 1.0
 offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
+script = ExtResource("11_22ot7")
+
+[node name="HeroFrame" type="TextureRect" parent="CanvasLayer/HeroPortrait"]
+custom_minimum_size = Vector2(275, 400)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+offset_right = 275.0
+grow_vertical = 0
+texture = ExtResource("11_2orqu")
+expand_mode = 1
 
 [node name="HeroFace" type="TextureRect" parent="CanvasLayer/HeroPortrait"]
 custom_minimum_size = Vector2(369, 420)
@@ -122,20 +137,20 @@ texture = ExtResource("11_huehx")
 expand_mode = 1
 flip_h = true
 
-[node name="HeroFrame" type="TextureRect" parent="CanvasLayer/HeroPortrait"]
-custom_minimum_size = Vector2(275, 400)
+[node name="HeroFrame2" type="TextureRect" parent="CanvasLayer/HeroPortrait"]
+custom_minimum_size = Vector2(275, 106)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -400.0
+offset_top = -106.0
 offset_right = 275.0
 grow_vertical = 0
-texture = ExtResource("12_58thq")
+texture = ExtResource("13_upcg4")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HeroPortrait"]
-custom_minimum_size = Vector2(275, 80)
+custom_minimum_size = Vector2(275, 104.87)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -144,7 +159,7 @@ offset_top = -85.0
 offset_right = 275.0
 offset_bottom = 3.0
 grow_vertical = 0
-theme_override_constants/separation = -2
+theme_override_constants/separation = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HeroPortrait/VBoxContainer"]
 custom_minimum_size = Vector2(275, 36)
@@ -154,7 +169,7 @@ alignment = 1
 [node name="Label" type="Label" parent="CanvasLayer/HeroPortrait/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_ej7ld")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 text = "Happiness:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -162,7 +177,7 @@ vertical_alignment = 1
 [node name="Label2" type="Label" parent="CanvasLayer/HeroPortrait/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_ej7ld")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 text = "100 / 100"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -172,11 +187,6 @@ layout_mode = 2
 
 [node name="HappinessBar" parent="CanvasLayer/HeroPortrait/VBoxContainer/HappinessBar" index="0"]
 layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="IchbodSprite" type="Sprite2D" parent="."]
 position = Vector2(494, 539.5)

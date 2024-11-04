@@ -13,6 +13,7 @@ physics_interpolation_mode = 1
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_f0p3q")
 center_of_mass_mode = 1
+freeze = true
 freeze_mode = 1
 continuous_cd = 1
 script = ExtResource("1_0bhd1")

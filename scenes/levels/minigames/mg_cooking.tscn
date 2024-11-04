@@ -1,5 +1,128 @@
-[gd_scene load_steps=2 format=3 uid="uid://bygvu73nyj7f4"]
+[gd_scene load_steps=12 format=3 uid="uid://bygvu73nyj7f4"]
 
 [ext_resource type="PackedScene" uid="uid://c3bn67y6fvnmb" path="res://scenes/levels/minigames/base_minigame.tscn" id="1_3bcbk"]
+[ext_resource type="PackedScene" uid="uid://dl1q13bvk2mn4" path="res://scenes/static_prop.tscn" id="2_cv0j4"]
+[ext_resource type="Script" path="res://scripts/minigames/mg_cooking.gd" id="2_r0fhc"]
+[ext_resource type="Texture2D" uid="uid://djm7uqhxrawh4" path="res://assets/props/cauldron.png" id="3_adnfd"]
+[ext_resource type="PackedScene" uid="uid://bfqyao7w8ej5t" path="res://scenes/physics_prop.tscn" id="4_cvm7l"]
+[ext_resource type="Texture2D" uid="uid://csnu3mvdgxw3u" path="res://assets/props/carrot.png" id="5_5jybw"]
+[ext_resource type="Texture2D" uid="uid://1ipxwohh4038" path="res://assets/props/onion.png" id="5_oakv5"]
+[ext_resource type="Texture2D" uid="uid://dyrd8y4mvk3r0" path="res://assets/props/cauldron_top.png" id="6_2hvsd"]
+[ext_resource type="Texture2D" uid="uid://s7eurc80on34" path="res://assets/props/potato.png" id="7_q2grm"]
+[ext_resource type="Texture2D" uid="uid://cy3f5y4hgng0l" path="res://assets/props/tomato.png" id="8_bywsm"]
+[ext_resource type="AudioStream" uid="uid://bvh3qmn78qf6v" path="res://assets/audio/SFX/progress.wav" id="8_s7wdm"]
 
 [node name="MG_Cooking" instance=ExtResource("1_3bcbk")]
+script = ExtResource("2_r0fhc")
+
+[node name="CauldronTop" type="Sprite2D" parent="." index="2"]
+position = Vector2(640, 274)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_2hvsd")
+
+[node name="Vegetables" type="Node2D" parent="." index="3"]
+z_index = 1
+
+[node name="PhysicsProp2" parent="Vegetables" index="0" instance=ExtResource("4_cvm7l")]
+position = Vector2(347, 338)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp2" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_oakv5")
+
+[node name="PhysicsProp3" parent="Vegetables" index="1" instance=ExtResource("4_cvm7l")]
+position = Vector2(944, 341)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp3" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_5jybw")
+
+[node name="PhysicsProp4" parent="Vegetables" index="2" instance=ExtResource("4_cvm7l")]
+position = Vector2(257, 185)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp4" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_q2grm")
+
+[node name="PhysicsProp5" parent="Vegetables" index="3" instance=ExtResource("4_cvm7l")]
+position = Vector2(314, 452)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp5" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_bywsm")
+
+[node name="PhysicsProp6" parent="Vegetables" index="4" instance=ExtResource("4_cvm7l")]
+position = Vector2(974, 455)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp6" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_bywsm")
+
+[node name="PhysicsProp7" parent="Vegetables" index="5" instance=ExtResource("4_cvm7l")]
+position = Vector2(974, 190)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp7" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_q2grm")
+
+[node name="PhysicsProp8" parent="Vegetables" index="6" instance=ExtResource("4_cvm7l")]
+position = Vector2(853, 196)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp8" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_oakv5")
+
+[node name="PhysicsProp9" parent="Vegetables" index="7" instance=ExtResource("4_cvm7l")]
+position = Vector2(873, 443)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp9" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_q2grm")
+
+[node name="PhysicsProp10" parent="Vegetables" index="8" instance=ExtResource("4_cvm7l")]
+position = Vector2(395, 497)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp10" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_5jybw")
+
+[node name="PhysicsProp11" parent="Vegetables" index="9" instance=ExtResource("4_cvm7l")]
+position = Vector2(236, 357)
+
+[node name="Sprite2D" parent="Vegetables/PhysicsProp11" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_5jybw")
+
+[node name="Cauldron" parent="." index="4" instance=ExtResource("2_cv0j4")]
+z_index = 2
+position = Vector2(640, 430)
+scale = Vector2(0.35, 0.35)
+
+[node name="Area2D" type="Area2D" parent="Cauldron" index="0"]
+scale = Vector2(1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cauldron/Area2D" index="0"]
+polygon = PackedVector2Array(-228.572, -154.286, -331.429, -17.1428, -257.143, 177.143, -11.4286, 248.572, 220, 222.857, 328.571, 82.8572, 322.857, -114.286, 231.429, -148.571)
+
+[node name="Sprite" parent="Cauldron" index="1"]
+texture = ExtResource("3_adnfd")
+
+[node name="CollisionPolygon2D" parent="Cauldron" index="2"]
+polygon = PackedVector2Array(-334.286, -388.572, -288.571, -417.143, -268.571, -365.714, -231.428, -265.714, -357.143, -31.4287, -277.143, 182.857, -14.2856, 274.286, 231.428, 245.714, 342.857, 82.8572, 340, -102.857, 234.286, -280, 305.714, -414.286, 345.714, -391.428, 291.428, -271.428, 385.714, -111.428, 402.857, 20, 351.428, 182.857, 305.714, 251.428, 342.857, 368.571, 414.286, 411.428, 314.286, 411.428, 282.857, 325.714, 214.286, 320, 180, 300, 25.7144, 342.857, 34.2858, 457.143, -37.1428, 460, -34.2856, 322.857, -205.714, 300, -277.143, 342.857, -305.714, 411.428, -420, 425.714, -420, 382.857, -354.286, 377.143, -308.571, 245.714, -397.143, 108.571, -411.428, -22.8572, -391.428, -111.428, -288.571, -291.428)
+
+[node name="ProgressSFX" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource("8_s7wdm")
+
+[connection signal="body_entered" from="Cauldron/Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="Vegetables/PhysicsProp2"]
+[editable path="Vegetables/PhysicsProp3"]
+[editable path="Vegetables/PhysicsProp4"]
+[editable path="Vegetables/PhysicsProp5"]
+[editable path="Vegetables/PhysicsProp6"]
+[editable path="Vegetables/PhysicsProp7"]
+[editable path="Vegetables/PhysicsProp8"]
+[editable path="Vegetables/PhysicsProp9"]
+[editable path="Vegetables/PhysicsProp10"]
+[editable path="Vegetables/PhysicsProp11"]
+[editable path="Cauldron"]

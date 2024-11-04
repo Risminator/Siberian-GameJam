@@ -13,10 +13,14 @@ var has_mouse: bool = false
 var default_scale: Vector2
 var pressed: bool = false
 
+var can_be_chosen: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	default_scale = scale
 	update_collision()
+	Events.minigame_chosen.connect(_on_minigame_chosen)
+	Events.return_to_tavern.connect(_on_return_to_tavern)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,9 +36,10 @@ func _process(_delta: float) -> void:
 		Events.minigame_chosen.emit(minigame)
 
 func _on_mouse_entered() -> void:
-	scale = default_scale + zoom
-	has_mouse = true
-	Events.minigame_hover.emit(minigame)
+	if can_be_chosen:
+		scale = default_scale + zoom
+		has_mouse = true
+		Events.minigame_hover.emit(minigame)
 
 
 func _on_mouse_exited() -> void:
@@ -47,3 +52,10 @@ func update_collision() -> void:
 	var collision_rect: RectangleShape2D = RectangleShape2D.new()
 	collision_rect.size = rect.size
 	collision_shape_2d.shape = collision_rect
+
+func _on_minigame_chosen(minigame: Global.MINI_GAMES) -> void:
+	has_mouse = false
+	can_be_chosen = false
+	
+func _on_return_to_tavern(minigame: Global.MINI_GAMES) -> void:
+	can_be_chosen = true
