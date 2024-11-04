@@ -13,14 +13,14 @@
 [node name="MG_Haircut" instance=ExtResource("1_njk7v")]
 script = ExtResource("2_08227")
 
-[node name="Shaven" type="Sprite2D" parent="." index="3"]
-position = Vector2(640, 360)
-scale = Vector2(0.5, 0.5)
+[node name="Shaven" type="Sprite2D" parent="." index="2"]
+position = Vector2(640, 390)
+scale = Vector2(0.55, 0.55)
 texture = ExtResource("2_nkksu")
 
-[node name="Beard" type="Node2D" parent="." index="4"]
-position = Vector2(640, 360)
-scale = Vector2(0.5, 0.5)
+[node name="Beard" type="Node2D" parent="." index="3"]
+position = Vector2(640, 390)
+scale = Vector2(0.55, 0.55)
 
 [node name="BeardComponent" parent="Beard" index="0" instance=ExtResource("4_xypwd")]
 

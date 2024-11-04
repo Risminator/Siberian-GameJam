@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3bn67y6fvnmb"]
+[gd_scene load_steps=17 format=3 uid="uid://c3bn67y6fvnmb"]
 
 [ext_resource type="Script" path="res://scripts/minigames/base_minigame.gd" id="1_kokp0"]
-[ext_resource type="Texture2D" uid="uid://di8oof0t5ruwg" path="res://assets/tavern/mini_game_bg.png" id="2_d3m0k"]
+[ext_resource type="Texture2D" uid="uid://cjv31txoiq845" path="res://assets/backgrounds/mini_game_bg.png" id="2_xqckp"]
 [ext_resource type="Theme" uid="uid://dsg8jpdjkqxx4" path="res://resources/theme_knight_support.tres" id="3_6pnqg"]
+[ext_resource type="Texture2D" uid="uid://b5x6xdkud6fwa" path="res://assets/backgrounds/mini_game_frame.png" id="3_8a0ty"]
 [ext_resource type="Texture2D" uid="uid://0n81aote7dps" path="res://assets/temp/check.png" id="4_8l0qi"]
 [ext_resource type="Script" path="res://scripts/minigames/return_button.gd" id="5_a178i"]
 
@@ -198,7 +199,11 @@ texture = SubResource("GradientTexture2D_4oqit")
 
 [node name="MiniGameBg" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
-texture = ExtResource("2_d3m0k")
+texture = ExtResource("2_xqckp")
+
+[node name="MiniGameFrame" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("3_8a0ty")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
