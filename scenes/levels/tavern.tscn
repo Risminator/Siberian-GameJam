@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://baoc7my8aw7mg"]
+[gd_scene load_steps=14 format=3 uid="uid://baoc7my8aw7mg"]
 
 [ext_resource type="Script" path="res://scripts/tavern.gd" id="1_tdf6r"]
 [ext_resource type="PackedScene" uid="uid://cvm4moumeekmw" path="res://scenes/clickable_object.tscn" id="1_tybcv"]
@@ -12,9 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b8mw7akq32f20" path="res://assets/tavern/bard_sprite.png" id="9_a07rt"]
 [ext_resource type="Texture2D" uid="uid://bnhwitgyimvfo" path="res://assets/temp/hero_temp.png" id="11_huehx"]
 [ext_resource type="Texture2D" uid="uid://cbyd7q2ub3yxr" path="res://assets/temp/frame.png" id="12_58thq"]
-[ext_resource type="Texture2D" uid="uid://cbv1clyk3srjl" path="res://assets/temp/happiness_under.png" id="13_3o8bd"]
-[ext_resource type="Texture2D" uid="uid://cvnm3g6yutbgi" path="res://assets/temp/happiness_over.png" id="14_6ldki"]
-[ext_resource type="Texture2D" uid="uid://suwxjr2mghbe" path="res://assets/temp/happiness_progress.png" id="15_g8ee0"]
+[ext_resource type="PackedScene" uid="uid://c1ji57y7ot82s" path="res://scenes/UI/happiness_bar.tscn" id="13_sonyx"]
 
 [node name="Tavern" type="Node2D"]
 script = ExtResource("1_tdf6r")
@@ -168,13 +166,16 @@ text = "100 / 100"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HappinessBar" type="TextureProgressBar" parent="CanvasLayer/HeroPortrait/VBoxContainer"]
-custom_minimum_size = Vector2(275, 40)
+[node name="HappinessBar" parent="CanvasLayer/HeroPortrait/VBoxContainer" instance=ExtResource("13_sonyx")]
 layout_mode = 2
-value = 100.0
-texture_under = ExtResource("13_3o8bd")
-texture_over = ExtResource("14_6ldki")
-texture_progress = ExtResource("15_g8ee0")
+
+[node name="HappinessBar" parent="CanvasLayer/HeroPortrait/VBoxContainer/HappinessBar" index="0"]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [editable path="MGRefreshmentBtn"]
 [editable path="MGWeaponBtn"]
@@ -182,3 +183,4 @@ texture_progress = ExtResource("15_g8ee0")
 [editable path="MGHaircutBtn"]
 [editable path="MGShelfBtn"]
 [editable path="MGMusicBtn"]
+[editable path="CanvasLayer/HeroPortrait/VBoxContainer/HappinessBar"]

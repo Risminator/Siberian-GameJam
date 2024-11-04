@@ -35,3 +35,10 @@ const MINIGAME_PATHS: Array[String] = [REFRESHMENT_PATH, WEAPON_CLEANING_PATH, C
 
 var SoundEffectsVolume = 0
 var MusicVolume = 0
+
+### HappinessMeter
+
+var HappinessValue = 0
+
+func reset_happiness() -> void:
+	HappinessValue = 0

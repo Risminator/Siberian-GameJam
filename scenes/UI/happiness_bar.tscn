@@ -1,0 +1,146 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1ji57y7ot82s"]
+
+[ext_resource type="Texture2D" uid="uid://cbv1clyk3srjl" path="res://assets/temp/happiness_under.png" id="1_l0gbc"]
+[ext_resource type="Texture2D" uid="uid://cvnm3g6yutbgi" path="res://assets/temp/happiness_over.png" id="2_8dbyp"]
+[ext_resource type="Texture2D" uid="uid://suwxjr2mghbe" path="res://assets/temp/happiness_progress.png" id="3_xgfou"]
+[ext_resource type="Script" path="res://scripts/UI/happiness_bar.gd" id="4_crooj"]
+
+[sub_resource type="Animation" id="Animation_12tp8"]
+resource_name = "deplete"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [100.0, 50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(4, 1), Vector2(-2, -3), Vector2(3, -2), Vector2(-6, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wu1sh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_srfsw"]
+resource_name = "fill"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [50.0, 100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ddmc"]
+_data = {
+"RESET": SubResource("Animation_wu1sh"),
+"deplete": SubResource("Animation_12tp8"),
+"fill": SubResource("Animation_srfsw")
+}
+
+[node name="HappinessUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HappinessBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(275, 40)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.214844
+anchor_bottom = 0.0555556
+offset_right = 275.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+texture_under = ExtResource("1_l0gbc")
+texture_over = ExtResource("2_8dbyp")
+texture_progress = ExtResource("3_xgfou")
+script = ExtResource("4_crooj")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HappinessBar"]
+libraries = {
+"": SubResource("AnimationLibrary_8ddmc")
+}
