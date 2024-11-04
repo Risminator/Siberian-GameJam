@@ -4,7 +4,7 @@ class_name MiniGame
 var is_game_active:bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
-
+@export var happiness_reward: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 	minigame_process(delta)
 
 func _on_minigame_completed() -> void:
+	
 	set_return_button_active()
 
 func minigame_ready() -> void:

@@ -38,7 +38,19 @@ var MusicVolume = 0
 
 ### HappinessMeter
 
-var HappinessValue = 0
+const MIN_HAPPINESS = 0
+const MAX_HAPPINESS = 100
+
+var HappinessValue: int = 0:
+	get:
+		return HappinessValue
+	set(value):
+		var new_value = clamp(value, MIN_HAPPINESS, MAX_HAPPINESS)
+		Events.happiness_updated.emit(HappinessValue, new_value)
+		HappinessValue =  new_value
+
+func alter_happiness_by(difference: int) -> void:
+	HappinessValue = HappinessValue + difference
 
 func reset_happiness() -> void:
 	HappinessValue = 0

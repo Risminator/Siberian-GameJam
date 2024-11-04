@@ -37,3 +37,22 @@ signal prop_dropped
 signal minigame_completed
 # Кусок бороды отрезан
 signal beard_cut
+
+
+### Счастье
+
+# Счастье изменилось
+signal happiness_updated(before: int, after: int)
+# Частный случай: Счастье увеличилось
+signal happiness_increased(before: int, after: int)
+# Частный случай: Счастье уменьшилось
+signal happiness_decreased(before: int, after: int)
+
+### Бой
+
+# Герой атаковал
+signal hero_attack
+# Монстр умер / получил урон
+signal monster_dead
+# Монстр ударил героя
+signal monster_attack

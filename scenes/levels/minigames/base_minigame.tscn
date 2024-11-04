@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3bn67y6fvnmb"]
+[gd_scene load_steps=21 format=3 uid="uid://c3bn67y6fvnmb"]
 
 [ext_resource type="Script" path="res://scripts/minigames/base_minigame.gd" id="1_kokp0"]
 [ext_resource type="Texture2D" uid="uid://cjv31txoiq845" path="res://assets/backgrounds/mini_game_bg.png" id="2_xqckp"]
@@ -14,6 +14,18 @@ gradient = SubResource("Gradient_t1pol")
 width = 2560
 height = 1440
 fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pusum"]
+size = Vector2(1320, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_meqrs"]
+size = Vector2(148, 751)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4nm2"]
+size = Vector2(1307, 191)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acpgc"]
+size = Vector2(149, 792)
 
 [sub_resource type="Animation" id="Animation_j3u5j"]
 length = 0.001
@@ -201,9 +213,27 @@ texture = SubResource("GradientTexture2D_4oqit")
 position = Vector2(640, 360)
 texture = ExtResource("2_xqckp")
 
-[node name="MiniGameFrame" type="Sprite2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="MiniGameFrame" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(640, 360)
 texture = ExtResource("3_8a0ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(650, 42)
+shape = SubResource("RectangleShape2D_pusum")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(64, 365.5)
+shape = SubResource("RectangleShape2D_meqrs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(632.5, 695)
+shape = SubResource("RectangleShape2D_b4nm2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1197.5, 383)
+shape = SubResource("RectangleShape2D_acpgc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
