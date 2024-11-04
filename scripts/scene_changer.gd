@@ -3,6 +3,8 @@ extends CanvasLayer
 var new_scene_path: String
 var current_scene: Global.GAME_SCENES
 
+const TRANSITION: String = "curtains_in_out"
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func change_to(new_scene: Global.GAME_SCENES):
@@ -23,7 +25,7 @@ func change_to(new_scene: Global.GAME_SCENES):
 
 	if animation_player.is_playing():
 		animation_player.stop()
-	animation_player.play("fade_in_out")
+	animation_player.play(TRANSITION)
 
 func restart():
 	change_to(current_scene)

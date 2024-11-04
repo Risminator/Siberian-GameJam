@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1ji57y7ot82s"]
+[gd_scene load_steps=10 format=3 uid="uid://c1ji57y7ot82s"]
 
 [ext_resource type="Texture2D" uid="uid://cbv1clyk3srjl" path="res://assets/temp/happiness_under.png" id="1_l0gbc"]
+[ext_resource type="Script" path="res://scripts/UI/happiness_UI.gd" id="1_lem2n"]
 [ext_resource type="Texture2D" uid="uid://cvnm3g6yutbgi" path="res://assets/temp/happiness_over.png" id="2_8dbyp"]
 [ext_resource type="Texture2D" uid="uid://suwxjr2mghbe" path="res://assets/temp/happiness_progress.png" id="3_xgfou"]
 [ext_resource type="Script" path="res://scripts/UI/happiness_bar.gd" id="4_crooj"]
@@ -122,6 +123,7 @@ _data = {
 [node name="HappinessUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_lem2n")
 
 [node name="HappinessBar" type="TextureProgressBar" parent="."]
 custom_minimum_size = Vector2(275, 40)
