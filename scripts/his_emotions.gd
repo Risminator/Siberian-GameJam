@@ -7,7 +7,7 @@ func _ready() -> void:
 	var current_happiness = Global.HappinessValue
 	update_sprite(current_happiness)
 		
-func _on_happiness_updated(before:int , after:int) -> void:
+func _on_happiness_updated(_before:int , after:int) -> void:
 	update_sprite(after)
 
 func update_sprite(current_happiness: int) -> void:

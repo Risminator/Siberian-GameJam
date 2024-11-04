@@ -6,7 +6,7 @@ func _ready() -> void:
 	update_label(0)
 	Events.happiness_updated.connect(_on_happiness_updated)
 
-func _on_happiness_updated(before, after) -> void:
+func _on_happiness_updated(_before, after) -> void:
 	update_label(after)
 	
 func update_label(value) -> void:

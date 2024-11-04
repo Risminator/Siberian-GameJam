@@ -53,9 +53,9 @@ func update_collision() -> void:
 	collision_rect.size = rect.size
 	collision_shape_2d.shape = collision_rect
 
-func _on_minigame_chosen(minigame: Global.MINI_GAMES) -> void:
+func _on_minigame_chosen(_chosen_minigame: Global.MINI_GAMES) -> void:
 	has_mouse = false
 	can_be_chosen = false
 	
-func _on_return_to_tavern(minigame: Global.MINI_GAMES) -> void:
+func _on_return_to_tavern(_chosen_minigame: Global.MINI_GAMES) -> void:
 	can_be_chosen = true

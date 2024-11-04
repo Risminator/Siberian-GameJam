@@ -55,8 +55,8 @@ func test_happiness_animations() -> void:
 func _on_happiness_updated(before: int, after: int) -> void:
 	if after > before:
 		hpup.play()
-		Events.happiness_increased.emit(before, after)
+		# Events.happiness_increased.emit(before, after)
 	elif after < before:
 		hpdown.play()
-		Events.happiness_decreased.emit(before, after)
+		# Events.happiness_decreased.emit(before, after)
 	update_health_bar(before, after)

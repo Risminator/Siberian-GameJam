@@ -7,13 +7,8 @@ func _ready() -> void:
 	Events.minigame_chosen.connect(_on_minigame_chosen)
 	Events.return_to_tavern.connect(_on_return_to_tavern)
 	
-func _on_minigame_chosen(minigame: Global.MINI_GAMES) -> void:
+func _on_minigame_chosen(_minigame: Global.MINI_GAMES) -> void:
 	visible = false
 	
-func _on_return_to_tavern(minigame: Global.MINI_GAMES) -> void:
+func _on_return_to_tavern(_minigame: Global.MINI_GAMES) -> void:
 	visible = true
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

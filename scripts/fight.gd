@@ -21,7 +21,7 @@ class_name FightScene
 
 const MONSTER = preload("res://scenes/monster.tscn")
 
-const ATTACK_COST: float = 5
+const ATTACK_COST: int = 5
 const MAX_LEVELS: int = 5
 
 var current_level: int = 1
@@ -36,7 +36,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	fight_round_process()
 
 

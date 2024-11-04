@@ -21,7 +21,7 @@ func _ready() -> void:
 	if sprite.texture != null and collision_polygon.polygon.is_empty():
 		set_collision_to_sprite()
 		
-func _process(delta):
+func _process(_delta):
 	if has_mouse and !prop_taken and Input.is_action_just_pressed("lmb"):
 		set_taken(true)
 	elif prop_taken and Input.is_action_just_pressed("lmb"):
@@ -40,8 +40,8 @@ func _process(delta):
 		move_and_collide(velocity)
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	var len = min(MAX_SPEED, state.linear_velocity.length())
-	state.linear_velocity = state.linear_velocity.normalized() * len
+	var velocity_len = min(MAX_SPEED, state.linear_velocity.length())
+	state.linear_velocity = state.linear_velocity.normalized() * velocity_len
 	
 
 
@@ -76,10 +76,13 @@ func set_collision_to_sprite() -> void:
 
 func set_taken(taken: bool) -> void:
 	prop_taken = taken
-	freeze = taken
+	set_frozen.call_deferred(taken)
 	if taken:
 		pickup_sound.play()
 		Events.prop_taken.emit()
 	else:
 		drop_sound.play()
 		Events.prop_dropped.emit()
+
+func set_frozen(frozen: bool) -> void:
+	freeze = frozen

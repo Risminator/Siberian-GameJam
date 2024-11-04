@@ -1,5 +1,98 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgusyvdtgo1hq"]
+[gd_scene load_steps=9 format=3 uid="uid://bgusyvdtgo1hq"]
 
 [ext_resource type="PackedScene" uid="uid://c3bn67y6fvnmb" path="res://scenes/levels/minigames/base_minigame.tscn" id="1_hj584"]
+[ext_resource type="Script" path="res://scripts/minigames/mg_music.gd" id="2_14gja"]
+[ext_resource type="Texture2D" uid="uid://siu352wil5m1" path="res://assets/props/pouch coin top.png" id="2_wnpgh"]
+[ext_resource type="PackedScene" uid="uid://bfqyao7w8ej5t" path="res://scenes/physics_prop.tscn" id="3_8smky"]
+[ext_resource type="Texture2D" uid="uid://bg74c24qgnt2e" path="res://assets/props/pouch coin.png" id="4_46efh"]
+[ext_resource type="Texture2D" uid="uid://divbsf1dhnx7p" path="res://assets/props/coin.png" id="5_n4saa"]
+[ext_resource type="PackedScene" uid="uid://dl1q13bvk2mn4" path="res://scenes/static_prop.tscn" id="6_ps5cf"]
+[ext_resource type="AudioStream" uid="uid://bvh3qmn78qf6v" path="res://assets/audio/SFX/progress.wav" id="8_y3twu"]
 
 [node name="MG_Music" instance=ExtResource("1_hj584")]
+script = ExtResource("2_14gja")
+
+[node name="PouchCoinTop" type="Sprite2D" parent="." index="3"]
+position = Vector2(689, 374)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wnpgh")
+
+[node name="Coins" type="Node2D" parent="." index="4"]
+
+[node name="Coin" parent="Coins" index="0" instance=ExtResource("3_8smky")]
+position = Vector2(347, 338)
+sprite_texture = ExtResource("4_46efh")
+
+[node name="Sprite2D" parent="Coins/Coin" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_n4saa")
+
+[node name="Coin2" parent="Coins" index="1" instance=ExtResource("3_8smky")]
+position = Vector2(346, 293)
+sprite_texture = ExtResource("4_46efh")
+
+[node name="Sprite2D" parent="Coins/Coin2" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_n4saa")
+
+[node name="Coin3" parent="Coins" index="2" instance=ExtResource("3_8smky")]
+position = Vector2(485, 331)
+sprite_texture = ExtResource("4_46efh")
+
+[node name="Sprite2D" parent="Coins/Coin3" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_n4saa")
+
+[node name="Coin4" parent="Coins" index="3" instance=ExtResource("3_8smky")]
+position = Vector2(260, 386)
+sprite_texture = ExtResource("4_46efh")
+
+[node name="Sprite2D" parent="Coins/Coin4" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_n4saa")
+
+[node name="Coin5" parent="Coins" index="4" instance=ExtResource("3_8smky")]
+position = Vector2(401, 409)
+sprite_texture = ExtResource("4_46efh")
+
+[node name="Sprite2D" parent="Coins/Coin5" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_n4saa")
+
+[node name="Coin6" parent="Coins" index="5" instance=ExtResource("3_8smky")]
+position = Vector2(509, 461)
+sprite_texture = ExtResource("4_46efh")
+
+[node name="Sprite2D" parent="Coins/Coin6" index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_n4saa")
+
+[node name="Pouch" parent="." index="5" instance=ExtResource("6_ps5cf")]
+z_index = 2
+position = Vector2(854, 455)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" type="Area2D" parent="Pouch" index="0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pouch/Area2D" index="0"]
+polygon = PackedVector2Array(160, -76, -68, -78, -146, -294, -374, -22, -204, 28, -60, 202, 308, 216, 436, 68, 434, -50, 334, -146)
+
+[node name="Sprite" parent="Pouch" index="1"]
+texture = ExtResource("4_46efh")
+
+[node name="CollisionPolygon2D" parent="Pouch" index="2"]
+position = Vector2(-332, -78)
+polygon = PackedVector2Array(156, -274, 222, -264, 254, -114, 306, -48, 432, -34, 544, -104, 682, -120, 832, 12, 832, 12, 838, 190, 764, 290, 664, 334, 490, 348, 278, 338, 210, 314, 148, 212, 102, 128, -150, 72, -172, 34, 110, 108, 246, 294, 648, 308, 796, 188, 796, 18, 656, -102, 470, -14, 286, -22, 226, -122, 210, -240)
+
+[node name="ProgressSFX" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource("8_y3twu")
+
+[connection signal="body_entered" from="Pouch/Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="Coins/Coin"]
+[editable path="Coins/Coin2"]
+[editable path="Coins/Coin3"]
+[editable path="Coins/Coin4"]
+[editable path="Coins/Coin5"]
+[editable path="Coins/Coin6"]
+[editable path="Pouch"]
