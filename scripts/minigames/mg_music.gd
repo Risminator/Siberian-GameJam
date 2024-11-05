@@ -11,10 +11,9 @@ func minigame_ready() -> void:
 	coin_count = coins.get_child_count()
 	
 	
-func start() -> void:
+func minigame_start() -> void:
 	for coin: RigidBody2D in coins.get_children():
 		coin.freeze = false
-	is_game_active = true
 
 
 func _on_area_2d_body_entered(body: PhysicsProp) -> void:

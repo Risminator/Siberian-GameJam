@@ -24,6 +24,9 @@ position = Vector2(640, 337)
 scale = Vector2(0.409722, 0.409722)
 texture = ExtResource("3_4814y")
 
+[node name="InstructionLabel" parent="CanvasLayer" index="1"]
+text = "Sort the belongings!"
+
 [node name="In_Slots" type="Control" parent="." index="7"]
 layout_mode = 3
 anchors_preset = 0

@@ -17,7 +17,7 @@ script = ExtResource("2_r0fhc")
 current_minigame = 3
 
 [node name="CauldronTop" type="Sprite2D" parent="." index="2"]
-position = Vector2(640, 274)
+position = Vector2(640, 276)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("6_2hvsd")
 
@@ -95,6 +95,9 @@ texture = ExtResource("3_adnfd")
 
 [node name="CollisionPolygon2D" parent="Cauldron" index="2"]
 polygon = PackedVector2Array(-334.286, -388.572, -288.571, -417.143, -268.571, -365.714, -231.428, -265.714, -357.143, -31.4287, -277.143, 182.857, -14.2856, 274.286, 231.428, 245.714, 342.857, 82.8572, 340, -102.857, 234.286, -280, 305.714, -414.286, 345.714, -391.428, 291.428, -271.428, 385.714, -111.428, 402.857, 20, 351.428, 182.857, 305.714, 251.428, 342.857, 368.571, 414.286, 411.428, 314.286, 411.428, 282.857, 325.714, 214.286, 320, 180, 300, 25.7144, 342.857, 34.2858, 457.143, -37.1428, 460, -34.2856, 322.857, -205.714, 300, -277.143, 342.857, -305.714, 411.428, -420, 425.714, -420, 382.857, -354.286, 377.143, -308.571, 245.714, -397.143, 108.571, -411.428, -22.8572, -391.428, -111.428, -288.571, -291.428)
+
+[node name="InstructionLabel" parent="CanvasLayer" index="1"]
+text = "Put everything in the cauldron!"
 
 [node name="ProgressSFX" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource("8_s7wdm")

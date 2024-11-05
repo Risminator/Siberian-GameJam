@@ -10,6 +10,9 @@
 script = ExtResource("2_odyby")
 current_minigame = 1
 
+[node name="InstructionLabel" parent="CanvasLayer" index="1"]
+text = "Fill the drink!"
+
 [node name="BeerSpawners" type="Node2D" parent="." index="6"]
 
 [node name="Spawn1" type="Marker2D" parent="BeerSpawners" index="0"]

@@ -48,6 +48,9 @@ texture = ExtResource("8_1wfil")
 [node name="Sprite2D" parent="Beard/BeardComponent5" index="0"]
 texture = ExtResource("9_ryyar")
 
+[node name="InstructionLabel" parent="CanvasLayer" index="1"]
+text = "Shave the beard!"
+
 [editable path="Beard/BeardComponent"]
 [editable path="Beard/BeardComponent2"]
 [editable path="Beard/BeardComponent3"]

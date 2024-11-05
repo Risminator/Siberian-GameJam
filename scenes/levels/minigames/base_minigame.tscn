@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3bn67y6fvnmb"]
+[gd_scene load_steps=26 format=3 uid="uid://c3bn67y6fvnmb"]
 
 [ext_resource type="Script" path="res://scripts/minigames/base_minigame.gd" id="1_kokp0"]
 [ext_resource type="Texture2D" uid="uid://cjv31txoiq845" path="res://assets/backgrounds/mini_game_bg.png" id="2_xqckp"]
@@ -200,6 +200,67 @@ _data = {
 "disappear": SubResource("Animation_yb67m")
 }
 
+[sub_resource type="Animation" id="Animation_1jivi"]
+resource_name = "appear"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_148nw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kja3u"]
+_data = {
+"RESET": SubResource("Animation_148nw"),
+"appear": SubResource("Animation_1jivi")
+}
+
 [node name="BaseMinigame" type="Node2D"]
 z_index = 5
 position = Vector2(0, 720)
@@ -244,9 +305,9 @@ libraries = {
 autoplay = "enter"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(128, 128)
 anchors_preset = 1
@@ -268,6 +329,29 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Button"]
 stream = ExtResource("7_0sgha")
+
+[node name="InstructionLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.5
+offset_top = -28.5
+offset_right = 130.5
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_6pnqg")
+text = "Let's go!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/InstructionLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_kja3u")
+}
 
 [node name="WinSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_jrcbk")

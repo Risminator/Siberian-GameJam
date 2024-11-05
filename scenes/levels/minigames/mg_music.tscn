@@ -85,6 +85,9 @@ texture = ExtResource("4_46efh")
 position = Vector2(-332, -78)
 polygon = PackedVector2Array(156, -274, 222, -264, 254, -114, 306, -48, 432, -34, 544, -104, 682, -120, 832, 12, 832, 12, 838, 190, 764, 290, 664, 334, 490, 348, 278, 338, 210, 314, 148, 212, 102, 128, -150, 72, -172, 34, 110, 108, 246, 294, 648, 308, 796, 188, 796, 18, 656, -102, 470, -14, 286, -22, 226, -122, 210, -240)
 
+[node name="InstructionLabel" parent="CanvasLayer" index="1"]
+text = "Tip the Bard!"
+
 [node name="ProgressSFX" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource("8_y3twu")
 

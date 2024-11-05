@@ -11,10 +11,9 @@ func minigame_ready() -> void:
 	vegetables_count = vegetables.get_child_count()
 
 
-func start() -> void:
+func minigame_start() -> void:
 	for vegetable: RigidBody2D in vegetables.get_children():
 		vegetable.freeze = false
-	is_game_active = true
 
 
 func _on_area_2d_body_entered(body: PhysicsProp) -> void:

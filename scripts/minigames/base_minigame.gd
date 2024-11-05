@@ -3,17 +3,19 @@ class_name MiniGame
 
 var is_game_active:bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var button: Button = $CanvasLayer/Button
 @export var happiness_reward: int = 25
 
 @export var current_minigame: Global.MINI_GAMES
 
 @onready var win_sfx: AudioStreamPlayer = $WinSFX
+@onready var instruction_animation_player: AnimationPlayer = $CanvasLayer/InstructionLabel/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Events.minigame_completed.connect(_on_minigame_completed)
 	Events.go_to_battle.connect(minigame_exit)
+	instruction_animation_player.play("appear")
 	minigame_ready()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,9 +38,13 @@ func minigame_exit() -> void:
 
 func start() -> void:
 	is_game_active = true
+	minigame_start()
+
+func minigame_start() -> void:
+	pass
 
 func set_return_button_active():
-	canvas_layer.visible = true
+	button.visible = true
 
 
 func _on_button_pressed() -> void:

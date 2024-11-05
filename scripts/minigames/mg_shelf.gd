@@ -10,14 +10,6 @@ func minigame_ready() -> void:
 	slots_count = in_slots.get_child_count()
 	Events.slot_set.connect(_on_slot_set)
 	
-func start() -> void:
-	pass
-
-func minigame_process(_delta: float) -> void:
-	pass
-	
-func minigame_exit() -> void:
-	pass
 
 func _on_slot_set() -> void:
 	correct_slots_count += 1
