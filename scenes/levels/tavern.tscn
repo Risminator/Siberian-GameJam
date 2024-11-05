@@ -41,6 +41,7 @@ minigame = 1
 texture = ExtResource("5_tm68t")
 
 [node name="MGWeaponBtn" parent="ClickableMiniGames" instance=ExtResource("1_tybcv")]
+visible = false
 position = Vector2(832, 325)
 scale = Vector2(0.75, 0.75)
 minigame = 2

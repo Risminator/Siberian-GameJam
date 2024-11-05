@@ -26,10 +26,16 @@ func _ready() -> void:
 		
 func _process(_delta):
 	if !always_taken:
-		if has_mouse and !prop_taken and Input.is_action_just_pressed("lmb"):
-			set_taken(true)
-		elif prop_taken and Input.is_action_just_pressed("lmb"):
-			set_taken(false)
+		if Global.DragControls == true:
+			if has_mouse and !prop_taken and Input.is_action_pressed("lmb"):
+				set_taken(true)
+			elif prop_taken and Input.is_action_just_released("lmb"):
+				set_taken(false)
+		else:
+			if has_mouse and !prop_taken and Input.is_action_just_pressed("lmb"):
+				set_taken(true)
+			elif prop_taken and Input.is_action_just_pressed("lmb"):
+				set_taken(false)
 		
 	if prop_taken:
 		var current_position : Vector2 = self.global_position

@@ -1,6 +1,149 @@
-[gd_scene load_steps=2 format=3 uid="uid://dofq6ikhea5av"]
+[gd_scene load_steps=15 format=3 uid="uid://dofq6ikhea5av"]
 
 [ext_resource type="PackedScene" uid="uid://c3bn67y6fvnmb" path="res://scenes/levels/minigames/base_minigame.tscn" id="1_7syf1"]
+[ext_resource type="Script" path="res://scripts/minigames/mg_shelf.gd" id="2_r1hwo"]
+[ext_resource type="Texture2D" uid="uid://cuoeq7ld24d8v" path="res://assets/props/cupboard.png" id="3_4814y"]
+[ext_resource type="Texture2D" uid="uid://jk5jy533bn2" path="res://assets/props/chestplate.png" id="4_3xrqx"]
+[ext_resource type="Texture2D" uid="uid://blxk1sjpfm54e" path="res://assets/props/pouch_coin1.png" id="5_2ybxi"]
+[ext_resource type="Texture2D" uid="uid://veje5cwioyw8" path="res://assets/props/shield.png" id="5_kujhm"]
+[ext_resource type="Texture2D" uid="uid://ck668xclxycjg" path="res://assets/props/sword.png" id="6_c8n5w"]
+[ext_resource type="Texture2D" uid="uid://dmqnrbfvh7e10" path="res://assets/props/polearm.png" id="7_lrkdg"]
+[ext_resource type="Texture2D" uid="uid://d0rs7227w7ti8" path="res://assets/props/mug.png" id="8_u5tu2"]
+[ext_resource type="Texture2D" uid="uid://cy3f5y4hgng0l" path="res://assets/props/tomato.png" id="10_ljoy1"]
+[ext_resource type="PackedScene" uid="uid://dlf73tu5d02ks" path="res://scenes/levels/minigames/mg_shelf/slot.tscn" id="10_tfcku"]
+[ext_resource type="Texture2D" uid="uid://cjx26rp80ixa" path="res://assets/props/sword.png_vertical.png" id="11_xdncl"]
+[ext_resource type="Texture2D" uid="uid://ueqhvssfy1sh" path="res://assets/props/polearm.png_vertical.png" id="12_rd1j8"]
+[ext_resource type="AudioStream" uid="uid://bvh3qmn78qf6v" path="res://assets/audio/SFX/progress.wav" id="14_mnev7"]
 
 [node name="MG_Shelf" instance=ExtResource("1_7syf1")]
+script = ExtResource("2_r1hwo")
 current_minigame = 5
+
+[node name="Cupboard" type="Sprite2D" parent="." index="2"]
+position = Vector2(640, 337)
+scale = Vector2(0.409722, 0.409722)
+texture = ExtResource("3_4814y")
+
+[node name="In_Slots" type="Control" parent="." index="7"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot_Pouch" parent="In_Slots" index="0" instance=ExtResource("10_tfcku")]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 144.0
+offset_right = 758.0
+offset_bottom = 208.0
+correct_texture = ExtResource("5_2ybxi")
+
+[node name="Slot_Chestplate" parent="In_Slots" index="1" instance=ExtResource("10_tfcku")]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 239.0
+offset_right = 758.0
+offset_bottom = 303.0
+correct_texture = ExtResource("4_3xrqx")
+
+[node name="Slot_Mug" parent="In_Slots" index="2" instance=ExtResource("10_tfcku")]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 333.0
+offset_right = 758.0
+offset_bottom = 397.0
+correct_texture = ExtResource("8_u5tu2")
+
+[node name="Slot_Shield" parent="In_Slots" index="3" instance=ExtResource("10_tfcku")]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 428.0
+offset_right = 758.0
+offset_bottom = 492.0
+correct_texture = ExtResource("5_kujhm")
+
+[node name="Slot_Sword" parent="In_Slots" index="4" instance=ExtResource("10_tfcku")]
+layout_mode = 0
+offset_left = 614.0
+offset_top = 269.0
+offset_right = 678.0
+offset_bottom = 499.4
+correct_texture = ExtResource("11_xdncl")
+
+[node name="Slot_Spear" parent="In_Slots" index="5" instance=ExtResource("10_tfcku")]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 158.0
+offset_right = 596.0
+offset_bottom = 503.6
+correct_texture = ExtResource("12_rd1j8")
+
+[node name="Out_Slots" type="GridContainer" parent="." index="8"]
+custom_minimum_size = Vector2(256, 384)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 146.0
+offset_top = 160.0
+offset_right = 406.0
+offset_bottom = 552.0
+grow_vertical = 2
+columns = 2
+
+[node name="Slot_Pouch" parent="Out_Slots" index="0" instance=ExtResource("10_tfcku")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+correct_texture = ExtResource("10_ljoy1")
+
+[node name="TextureRect" parent="Out_Slots/Slot_Pouch" index="0"]
+texture = ExtResource("5_2ybxi")
+
+[node name="Slot_Chestplate" parent="Out_Slots" index="1" instance=ExtResource("10_tfcku")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+correct_texture = ExtResource("10_ljoy1")
+
+[node name="TextureRect" parent="Out_Slots/Slot_Chestplate" index="0"]
+texture = ExtResource("4_3xrqx")
+
+[node name="Slot_Mug" parent="Out_Slots" index="2" instance=ExtResource("10_tfcku")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+correct_texture = ExtResource("10_ljoy1")
+
+[node name="TextureRect" parent="Out_Slots/Slot_Mug" index="0"]
+texture = ExtResource("8_u5tu2")
+
+[node name="Slot_Shield" parent="Out_Slots" index="3" instance=ExtResource("10_tfcku")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+correct_texture = ExtResource("10_ljoy1")
+
+[node name="TextureRect" parent="Out_Slots/Slot_Shield" index="0"]
+texture = ExtResource("5_kujhm")
+
+[node name="Slot_Sword" parent="Out_Slots" index="4" instance=ExtResource("10_tfcku")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+correct_texture = ExtResource("10_ljoy1")
+
+[node name="TextureRect" parent="Out_Slots/Slot_Sword" index="0"]
+texture = ExtResource("6_c8n5w")
+
+[node name="Slot_Spear" parent="Out_Slots" index="5" instance=ExtResource("10_tfcku")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+correct_texture = ExtResource("10_ljoy1")
+
+[node name="TextureRect" parent="Out_Slots/Slot_Spear" index="0"]
+texture = ExtResource("7_lrkdg")
+
+[node name="ProgressSFX" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource("14_mnev7")
+
+[editable path="Out_Slots/Slot_Pouch"]
+[editable path="Out_Slots/Slot_Chestplate"]
+[editable path="Out_Slots/Slot_Mug"]
+[editable path="Out_Slots/Slot_Shield"]
+[editable path="Out_Slots/Slot_Sword"]
+[editable path="Out_Slots/Slot_Spear"]

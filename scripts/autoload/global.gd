@@ -37,6 +37,7 @@ const MINIGAME_PATHS: Array[String] = [REFRESHMENT_PATH, WEAPON_CLEANING_PATH, C
 
 var SoundEffectsVolume = 0
 var MusicVolume = 0
+var DragControls: bool = true
 
 var attempt: int = 0
 

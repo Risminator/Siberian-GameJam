@@ -12,7 +12,8 @@ signal transition_complete(new_scene: Global.GAME_SCENES)
 signal game_win
 
 # Ещё нигде не применялось, но можно использовать, если вдруг сделаем настройки громкости
-# signal volume_changed
+@warning_ignore("unused_signal")
+signal volume_changed
 
 # Это нигде не считывается, мы просто отправляем этот сигнал для тряски камеры на выбранное кол-во символов
 # signal screen_shake
@@ -52,7 +53,9 @@ signal minigame_completed
 # Кусок бороды отрезан
 @warning_ignore("unused_signal")
 signal beard_cut
-
+# В слот положили предмет
+@warning_ignore("unused_signal")
+signal slot_set
 
 ### Счастье
 

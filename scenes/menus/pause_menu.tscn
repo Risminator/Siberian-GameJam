@@ -125,6 +125,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 10
 
 [node name="Music" type="Label" parent="PanelContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_v7gkr")
 theme_override_font_sizes/font_size = 30
@@ -132,12 +133,13 @@ text = "Music"
 horizontal_alignment = 1
 
 [node name="Music2" type="HScrollBar" parent="PanelContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-min_value = -20.0
-max_value = 20.0
+value = 50.0
 
 [node name="Sound" type="Label" parent="PanelContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_v7gkr")
 theme_override_font_sizes/font_size = 30
@@ -145,10 +147,10 @@ text = "SFX"
 horizontal_alignment = 1
 
 [node name="Sound2" type="HScrollBar" parent="PanelContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-min_value = -10.0
-max_value = 10.0
+value = 50.0
 
 [node name="BtnResume" type="Button" parent="PanelContainer/VBoxContainer"]
 process_mode = 3

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://coeg1ms6ak4o"]
+
+[ext_resource type="Script" path="res://scripts/minigames/drag_preview.gd" id="1_nadx4"]
+
+[node name="DragPreview" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.52549)
+script = ExtResource("1_nadx4")

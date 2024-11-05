@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blxk1sjpfm54e"
-path="res://.godot/imported/pouch coin — копия.png-04322aedc2c9e09ee5903c7c39a2c740.ctex"
+uid="uid://dmyj7rlg01kb3"
+path="res://.godot/imported/cupboard — копия.png-4c996ba226f4705a194b99efd4266681.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/props/pouch coin — копия.png"
-dest_files=["res://.godot/imported/pouch coin — копия.png-04322aedc2c9e09ee5903c7c39a2c740.ctex"]
+source_file="res://assets/props/cupboard — копия.png"
+dest_files=["res://.godot/imported/cupboard — копия.png-4c996ba226f4705a194b99efd4266681.ctex"]
 
 [params]
 
