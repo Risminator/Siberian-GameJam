@@ -10,11 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Siberian GameJam 2024-11"
+config/name="Squire's Support"
 run/main_scene="res://scenes/menus/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://assets/icon/splash.png"
-config/icon="res://icon.svg"
+config/icon="res://assets/icon/hero_icon1.png"
+config/windows_native_icon="res://assets/icon/icon.ico"
 
 [autoload]
 
@@ -68,4 +69,5 @@ pause={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.676852, 0.537797, 0.486575, 1)

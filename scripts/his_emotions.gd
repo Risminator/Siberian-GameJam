@@ -11,13 +11,17 @@ func _on_happiness_updated(_before:int , after:int) -> void:
 	update_sprite(after)
 
 func update_sprite(current_happiness: int) -> void:
-	if current_happiness <= 35:
+	@warning_ignore("integer_division")
+	if current_happiness <= Global.MAX_HAPPINESS * 1 / 5:
 		play("1")
-	elif current_happiness <= 70:
+		@warning_ignore("integer_division")
+	elif current_happiness <= Global.MAX_HAPPINESS * 2 / 5:
 		play("2")
-	elif current_happiness <= 105:
+		@warning_ignore("integer_division")
+	elif current_happiness <= Global.MAX_HAPPINESS * 3 / 5:
 		play("3")
-	elif current_happiness <= 140:
+		@warning_ignore("integer_division")
+	elif current_happiness <= Global.MAX_HAPPINESS * 4 / 5:
 		play("4")
 	else:
 		play("5")

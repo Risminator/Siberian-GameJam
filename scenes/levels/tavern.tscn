@@ -84,7 +84,6 @@ texture = ExtResource("9_a07rt")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LoadingBox" type="PanelContainer" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -178,7 +177,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme = ExtResource("3_ej7ld")
 theme_override_font_sizes/font_size = 28
-text = "0 / 175"
+text = "0 / 200"
 horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("15_aa4la")
@@ -200,13 +199,13 @@ layout_mode = 2
 [node name="TimeLabel" type="Label" parent="CanvasLayer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme = ExtResource("3_ej7ld")
-text = "Time left: 80"
+text = "Time left: 120"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("18_drxow")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/VBoxContainer/PanelContainer/TimeLabel"]
-wait_time = 80.0
+wait_time = 120.0
 one_shot = true
 
 [node name="RestartBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
@@ -225,6 +224,8 @@ scale = Vector2(0.707546, 0.670782)
 texture = ExtResource("14_wewd1")
 
 [node name="PauseMenu" parent="." instance=ExtResource("20_scken")]
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
 
 [editable path="ClickableMiniGames/MGRefreshmentBtn"]
 [editable path="ClickableMiniGames/MGWeaponBtn"]

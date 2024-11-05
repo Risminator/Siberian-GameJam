@@ -23,18 +23,21 @@ class_name FightScene
 
 const MONSTER = preload("res://scenes/monster.tscn")
 
-const ATTACK_COST: int = 5
+var ATTACK_COST: int = 20
 const MAX_LEVELS: int = 5
 
 var current_level: int = 1
 var monsters_array: Array[Node]
+
+static var turn = 0
 
 @onready var head: TextureRect = $CanvasLayer/Head
 @onready var win_sound: AudioStreamPlayer = $WinSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Global.attempt > 2 and Global.HappinessValue <= 125 and (OS.has_feature("web_android") or OS.has_feature("web_ios")):
+	@warning_ignore("integer_division")
+	if Global.attempt > 1 and Global.HappinessValue <= Global.MAX_HAPPINESS * 4 / 5: #and (OS.has_feature("web_android") or OS.has_feature("web_ios") or OS.has_feature("mobile")):
 		restart_btn.visible = true
 	fight_round_ready()
 
@@ -67,7 +70,11 @@ func fight_round_process() -> void:
 	pass
 
 func player_turn() -> void:
-	await get_tree().create_timer(delay_time).timeout
+	turn += 1
+	if turn != 1:
+		await get_tree().create_timer(delay_time).timeout
+	else:
+		await get_tree().create_timer(delay_time / 2).timeout
 	if monsters_array.size() > 0:
 		while Global.HappinessValue > 0 and monsters_array.size() > 0:
 			player_attack()
@@ -88,12 +95,23 @@ func monster_turn() -> void:
 			await Events.monster_attack
 
 func player_attack() -> void:
+	var attacks_num: int
+	@warning_ignore("integer_division")
+	if Global.HappinessValue <= Global.MAX_HAPPINESS * 3 / 5:
+		attacks_num = 1
+		@warning_ignore("integer_division")
+	elif Global.HappinessValue <= Global.MAX_HAPPINESS * 4 / 5:
+		attacks_num = 2
+	else:
+		attacks_num = 3
 	if hero.has_method("attack"):
 		hero.attack()
 		await Events.hero_attack
-	var monster: Monster = monsters_array.pop_back()
-	if monster.has_method("die"):
-		monster.die()
+	for i in range(attacks_num):
+		if !monsters_array.is_empty():
+			var monster: Monster = monsters_array.pop_back()
+			if monster.has_method("die"):
+				monster.die()
 	Global.alter_happiness_by(-ATTACK_COST)
 	await Events.monster_dead
 
@@ -105,6 +123,14 @@ func return_home() -> void:
 func move_on() -> void:
 	win_sound.play()
 	current_level += 1
+	@warning_ignore("integer_division")
+	if Global.HappinessValue <= Global.MAX_HAPPINESS * 3 / 5:
+		Global.alter_happiness_by(20)
+		@warning_ignore("integer_division")
+	elif Global.HappinessValue <= Global.MAX_HAPPINESS * 4 / 5:
+		Global.alter_happiness_by(25)
+	else:
+		Global.alter_happiness_by(30)
 	match current_level:
 		1:
 			pass
@@ -127,6 +153,7 @@ func move_on() -> void:
 		Events.game_win.emit()
 		SceneChanger.change_to(Global.GAME_SCENES.ENDING)
 	else:
+		turn = 0
 		fight_round_ready()
 
 

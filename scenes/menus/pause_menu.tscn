@@ -166,7 +166,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_v7gkr")
 theme_override_font_sizes/font_size = 30
 disabled = true
-text = "Restart"
+text = "Restart at Tavern"
 
 [node name="BtnMain" type="Button" parent="PanelContainer/VBoxContainer"]
 process_mode = 3

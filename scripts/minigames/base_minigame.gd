@@ -25,7 +25,8 @@ func _process(delta: float) -> void:
 func _on_minigame_completed() -> void:
 	win_sfx.play()
 	Global.alter_happiness_by(happiness_reward)
-	set_return_button_active()
+	if Global.HappinessValue < Global.MAX_HAPPINESS:
+		set_return_button_active()
 
 func minigame_ready() -> void:
 	pass

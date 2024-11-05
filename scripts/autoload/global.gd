@@ -41,10 +41,13 @@ var DragControls: bool = true
 
 var attempt: int = 0
 
+var time_completed: float = 0
+var time_record: float = 5000
+
 ### HappinessMeter
 
 const MIN_HAPPINESS = 0
-const MAX_HAPPINESS = 175
+const MAX_HAPPINESS = 200
 
 var HappinessValue: int = 0:
 	get:

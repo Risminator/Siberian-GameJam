@@ -2,7 +2,7 @@ extends Node2D
 class_name Monster
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@export var damage: int = 5
+@export var damage: int = 20
 
 
 func die() -> void:

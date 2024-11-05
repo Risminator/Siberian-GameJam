@@ -27,7 +27,8 @@ var clickables_array: Array[Node]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.attempt += 1
-	if Global.attempt > 3 and Global.HappinessValue <= 125 and (OS.has_feature("web_android") or OS.has_feature("web_ios")):
+	@warning_ignore("integer_division")
+	if Global.attempt > 1 and Global.HappinessValue <= Global.MAX_HAPPINESS * 4 / 5: # and (OS.has_feature("web_android") or OS.has_feature("web_ios") or OS.has_feature("mobile")):
 		restart_btn.visible = true
 	Global.reset_happiness()
 	start_loading_minigames()
@@ -35,7 +36,6 @@ func _ready() -> void:
 	Events.return_to_tavern.connect(_on_return_to_tavern)
 	Events.happiness_maxed.connect(go_to_battle)
 	timer.timeout.connect(go_to_battle)
-	timer.start()
 	Events.return_to_tavern.emit(Global.MINI_GAMES.NO_GAME)
 	clickables_array = clickable_mini_games.get_children()
 
@@ -48,10 +48,12 @@ func _process(_delta: float) -> void:
 			assign_loaded_scenes_instances()
 			everything_loaded = true
 			loading_box.visible = false
+			timer.start()
 			
 
 
 func _on_minigame_chosen(minigame: Global.MINI_GAMES) -> void:
+	restart_btn.visible = false
 	if current_minigame == Global.MINI_GAMES.NO_GAME:
 		current_minigame = minigame
 		var chosen_minigame: PackedScene
@@ -72,6 +74,9 @@ func _on_minigame_chosen(minigame: Global.MINI_GAMES) -> void:
 
 func _on_return_to_tavern(_completed_minigame: Global.MINI_GAMES) -> void:
 	current_minigame = Global.MINI_GAMES.NO_GAME
+	@warning_ignore("integer_division")
+	if Global.attempt > 1 and Global.HappinessValue <= Global.MAX_HAPPINESS * 4 / 5: # and (OS.has_feature("web_android") or OS.has_feature("web_ios") or OS.has_feature("mobile")):
+		restart_btn.visible = true
 	#for clickable:ClickableMiniGame in clickables_array:
 		#if clickable.minigame == _completed_minigame:
 			#clickable.cool_down = clickable.max_cool_down
@@ -108,5 +113,12 @@ func is_loading_status_ready() -> bool:
 	return scene_load_status.filter(func(status): return status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED).size() >= MINIGAME_COUNT
 
 func go_to_battle() -> void:
+	Global.time_completed = timer.wait_time - timer.time_left
+	if Global.time_completed <= Global.time_record:
+		Global.time_record = Global.time_completed
 	Events.go_to_battle.emit()
 	SceneChanger.change_to(Global.GAME_SCENES.FIGHT)
+
+
+func _on_restart_btn_pressed() -> void:
+	SceneChanger.change_to(Global.GAME_SCENES.TAVERN)
