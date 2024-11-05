@@ -19,6 +19,8 @@ class_name FightScene
 @onready var slime_4: TextureRect = $CanvasLayer/Slime4
 @onready var slime_5: TextureRect = $CanvasLayer/Slime5
 
+@onready var restart_btn: Button = $CanvasLayer/RestartBtn
+
 const MONSTER = preload("res://scenes/monster.tscn")
 
 const ATTACK_COST: int = 5
@@ -32,6 +34,8 @@ var monsters_array: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Global.attempt > 2 and Global.HappinessValue <= 125 and (OS.has_feature("web_android") or OS.has_feature("web_ios")):
+		restart_btn.visible = true
 	fight_round_ready()
 
 
@@ -124,3 +128,7 @@ func move_on() -> void:
 		SceneChanger.change_to(Global.GAME_SCENES.ENDING)
 	else:
 		fight_round_ready()
+
+
+func _on_restart_btn_pressed() -> void:
+	SceneChanger.change_to(Global.GAME_SCENES.TAVERN)

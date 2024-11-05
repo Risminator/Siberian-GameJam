@@ -2,9 +2,11 @@ extends Node2D
 
 @onready var loading_box: PanelContainer = $CanvasLayer/LoadingBox
 @onready var loaded_count_label: Label = $CanvasLayer/LoadingBox/VBoxContainer/LoadedCountLabel
-@onready var timer: Timer = $CanvasLayer/PanelContainer/TimeLabel/Timer
+@onready var timer: Timer = $CanvasLayer/VBoxContainer/PanelContainer/TimeLabel/Timer
+
 
 @onready var clickable_mini_games: Node2D = $ClickableMiniGames
+@onready var restart_btn: Button = $CanvasLayer/VBoxContainer/RestartBtn
 
 var current_minigame: Global.MINI_GAMES = Global.MINI_GAMES.NO_GAME
 
@@ -24,6 +26,9 @@ var clickables_array: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.attempt += 1
+	if Global.attempt > 3 and Global.HappinessValue <= 125 and (OS.has_feature("web_android") or OS.has_feature("web_ios")):
+		restart_btn.visible = true
 	Global.reset_happiness()
 	start_loading_minigames()
 	Events.minigame_chosen.connect(_on_minigame_chosen)

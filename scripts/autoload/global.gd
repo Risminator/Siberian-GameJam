@@ -38,6 +38,8 @@ const MINIGAME_PATHS: Array[String] = [REFRESHMENT_PATH, WEAPON_CLEANING_PATH, C
 var SoundEffectsVolume = 0
 var MusicVolume = 0
 
+var attempt: int = 0
+
 ### HappinessMeter
 
 const MIN_HAPPINESS = 0

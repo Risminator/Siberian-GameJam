@@ -206,10 +206,8 @@ script = ExtResource("18_drxow")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/VBoxContainer/PanelContainer/TimeLabel"]
 wait_time = 80.0
-one_shot = true
 
 [node name="RestartBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0

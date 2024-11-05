@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c2v04xgvr74d2"]
+[gd_scene load_steps=22 format=3 uid="uid://c2v04xgvr74d2"]
 
 [ext_resource type="Script" path="res://scripts/fight.gd" id="1_f81jk"]
 [ext_resource type="Texture2D" uid="uid://b0ffn5mbsh2ri" path="res://assets/backgrounds/mountains_sprite.png" id="1_jl5dj"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://d0dwcdrpqkfsj" path="res://assets/UI/knight face icon.png" id="16_eqb8w"]
 [ext_resource type="Texture2D" uid="uid://curmqktwjk6v5" path="res://assets/UI/slime icon.png" id="17_cj363"]
 [ext_resource type="PackedScene" uid="uid://dvjqr7ei34lgq" path="res://scenes/menus/pause_menu.tscn" id="18_2gefs"]
+[ext_resource type="Theme" uid="uid://dsg8jpdjkqxx4" path="res://resources/theme_knight_support.tres" id="18_bfmmx"]
+[ext_resource type="Texture2D" uid="uid://c05gag0pb857f" path="res://assets/UI/again.png" id="19_mc5u1"]
 [ext_resource type="AudioStream" uid="uid://cpix32qgeyfpa" path="res://assets/audio/SFX/pobeda.wav" id="19_nr4vg"]
 
 [node name="Fight" type="Node2D"]
@@ -247,7 +249,21 @@ grow_horizontal = 0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("17_cj363")
 
+[node name="RestartBtn" type="Button" parent="CanvasLayer"]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+offset_left = 24.0
+offset_top = 13.0
+offset_right = 152.0
+offset_bottom = 141.0
+theme = ExtResource("18_bfmmx")
+icon = ExtResource("19_mc5u1")
+icon_alignment = 1
+expand_icon = true
+
 [node name="PauseMenu" parent="." instance=ExtResource("18_2gefs")]
 
 [node name="WinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_nr4vg")
+
+[connection signal="pressed" from="CanvasLayer/RestartBtn" to="." method="_on_restart_btn_pressed"]
